@@ -1,0 +1,212 @@
+/*ESTILOS A TODA LA PAGINA ENTERA*/
+/*FONDO PARA LAS UNIDADES*/
+#fondo{
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background: rgb(11,24,1);
+    background: linear-gradient(180deg, rgba(11,24,1,1) 0%, rgba(30,64,2,1) 50%, rgba(67,107,4,1) 100%);
+}
+
+/*ESTILOS AL CUEPO PRINCIPAL DE LA PAGINA*/
+.cuerpo_unidad{
+    width: 1100px;
+    height: auto;
+    background-color: rgb(247, 247, 169,0.7);
+    text-align: center;
+    padding-bottom: 50px; /*Le da un margen abajo para que toque el footer*/
+}
+h1{
+    color: rgb(4, 62, 4);
+    font-family: 'Kanit', sans-serif;
+    font-size: 60px;
+    margin-top: 0;
+    margin-bottom: 0;
+    margin-left: 100px;
+    margin-right: 100px;
+}
+h2{
+    color: yellow;
+    font-family: 'Kanit', sans-serif;
+    font-size: 50px;
+    background-color: rgb(4, 62, 4, 0.7);
+    margin-top: 0;
+    margin-bottom: 0; /*Se quita el espacio de abajo*/
+    border-bottom: 10px solid orange; 
+}
+h3{
+    color: rgb(255, 123, 0);
+    font-family: 'Kanit', sans-serif;
+    font-size: 40px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+.unidades{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    background-color: rgb(49, 45, 45, 0.7);
+    padding: 10px;
+    margin-bottom: 30px; /*Aleja la barra de las unidades del primer titulo*/
+}
+.unit {
+    background-color: orange;
+    font-family: 'Kanit', sans-serif;
+    font-size: 20px;
+    font-weight: 900;
+    border-radius: 50px;
+    border: 3px solid yellow;
+    width: 100px;
+    height: 20px;
+    padding: 10px;
+    transition: transform 0.3s ease;
+}
+.unit a{
+    color: black;
+    width: 100%; /*el enlace toma el 100% de todo el contenido de la caja*/
+    height: 100%;
+    display: flex; /*centra todo el contenido dentro del div*/
+    align-items: center;
+    justify-content: center;
+}
+.unit:hover{
+    transform: scale(1.2);
+}
+iframe{
+    border-radius: 10px;
+    margin-top: 10px;
+}
+hr {
+    border: none; /* Elimina el borde para evitar conflictos con el degradado */
+    border-radius: 50px;
+    height: 10px; /* Altura de la línea */
+    margin: 20px 75px; /* Espaciado arriba y abajo de la línea, y 50px de los costados */
+    background: linear-gradient(to right, rgb(4, 62, 4), yellow, rgb(4, 62, 4));
+}
+
+/*PAGINAS EN CONSTRUCCION - NOTIFICACION*/
+h4{
+    color: black;
+    font-size: 50px;
+    font-style: italic;
+}
+
+/*ENLACES DE ACTIVIDADES DE WORDWALL*/
+.exercises{
+    list-style: none;
+    padding: 0;
+}
+.exercises a{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    color: rgb(4, 62, 4);
+    font-size: 30px;
+    font-family:'Kanit', sans-serif;
+    margin-bottom: 10px;
+}
+.exercises a img{
+    width: 40px; /* Ajusta el tamaño de la imagen según sea necesario */
+    height: 40px; /* Ajusta el tamaño de la imagen según sea necesario */
+    margin-right: 5px;
+}
+.exercises a:hover {
+    color: orangered;
+}
+
+/*-----------------------------------------------------------------*/
+
+@media all and (min-width:600px) and (max-width:1024px){
+
+    /*ESTILOS AL CUEPO PRINCIPAL DE LA PAGINA*/
+    .cuerpo_unidad{
+        width: 800px;
+    }
+    h1{
+        font-size: 40px;
+    }
+    h2{
+        font-size: 30px;
+    }
+    h3{
+        font-size: 30px;
+        margin-bottom: 7px;
+    }
+    .unit {
+        font-size: 18px;
+        width: 90px;
+        height: 15px;
+        padding: 7px;
+    }
+   
+    /*PAGINAS EN CONSTRUCCION - NOTIFICACION*/
+    h4{
+        font-size: 30px;  
+    }
+    
+    /*ENLACES DE ACTIVIDADES DE WORDWALL*/
+    .exercises a{
+        font-size: 20px;
+    }
+    .exercises a img{
+        width: 30px; /* Ajusta el tamaño de la imagen según sea necesario */
+        height: 30px; /* Ajusta el tamaño de la imagen según sea necesario */
+    }
+}/*Cierre media de 600px a 1024px*/
+
+/*-----------------------------------------------------------------*/
+
+@media all and (max-width:599px){
+
+    /*ESTILOS AL CUEPO PRINCIPAL DE LA PAGINA*/
+    .cuerpo_unidad{
+        width: 350px;      
+        padding-bottom: 20px; /*Le da un margen abajo para que toque el footer*/
+    }
+    h1{
+        font-size: 25px;
+    }
+    h2{
+        font-size: 20px;
+        border-bottom: 5px solid orange; 
+    }
+    h3{
+        font-size: 20px;
+        margin-top: 20px;
+        margin-bottom: 5px;
+    }
+    .unit {
+        font-size: 15px;
+        width: 70px;
+        height: 15px;
+        padding: 5px;
+        margin: 10px;
+    }
+    iframe{
+        border-radius: 10px;
+        margin-top: 10px;
+        width: 250px;
+        height: auto;
+    }
+    hr {
+        margin: 20px 45px; /* Espaciado arriba y abajo de la línea, y 45px de los costados */
+    }
+
+    /*PAGINAS EN CONSTRUCCION - NOTIFICACION*/
+    h4{
+        font-size: 20px;
+    }
+
+    /*ENLACES DE ACTIVIDADES DE WORDWALL*/
+    .exercises a{
+        font-size: 15px;
+    }
+    .exercises a img{
+        width: 20px; /* Ajusta el tamaño de la imagen según sea necesario */
+        height: 20px; /* Ajusta el tamaño de la imagen según sea necesario */
+    }
+}

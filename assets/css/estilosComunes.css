@@ -1,0 +1,734 @@
+/*ESTILOS A TODA LA PAGINA ENTERA*/
+body{
+  margin: 0;
+  padding: 0;
+}
+
+/*ESTILOS AL HEADER*/
+.cabecera{
+  width: 100%;
+  height: 17vh;
+  border-top: 1vw solid rgb(255, 255, 0, 0.7);
+  border-bottom: 0.5vw solid rgb(255, 255, 0, 0.7);
+  background-color: rgb(4, 62, 4, 0.8);
+  display: flex; 
+  align-items: center; /*alinea logo y nombre al centro horizontalmente*/
+  justify-content: space-between; /* Distribuye el espacio entre los elementos */
+  z-index: 10; /* Asegura que el header esté delante del video */
+  position: fixed;
+}
+.logo-container {
+  display: flex;
+  align-items: center;
+  width: 60%; /* Ajusta según sea necesario */
+}
+#logo{
+  width: 100%;
+  max-width: 7vw;
+  padding-left: 10px;
+}
+#nombre_pagina{
+  width: 100%;
+  max-width: 35vw;
+}
+
+/*AVATAR*/
+/* Menú de usuario */
+.user-menu {
+  margin-right: 2%; /* Distancia de 15px del borde derecho */
+  position: relative;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+#user-avatar {
+  width: 100%; /* Ajusta el tamaño del avatar según tus preferencias */
+  max-width: 5vw; /* Tamaño máximo para evitar que se expanda demasiado */
+  height: auto; /* Mantiene la proporción de la imagen */
+  background-color: yellow;
+  border-radius: 50%;
+}
+.dropdown-content {
+  display: none;
+  position: absolute;
+  right: 0; /* Alinea el menú desplegable al lado derecho del avatar */
+  top: 100%; /* Coloca el menú debajo del avatar */
+  background-color: rgb(68, 68, 68, 0.8);
+  min-width: 150px; /* Anchura mínima del menú */
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 100;
+  text-align: center;
+}
+.dropdown-content a {
+  color: #FFFFFF;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  font-family: 'Kanit', sans-serif;
+  font-size: 100%;
+}
+.dropdown-content a:hover {
+  background: rgb(255, 255, 0, 0.7);
+  color: #043E04;
+}
+/* Mostrar el menú desplegable al pasar el ratón por encima */
+.user-menu:hover .dropdown-content {
+  display: block;
+}
+
+/*ESTILOS AL NAV-BAR*/
+#menu{
+  width: 100%;
+  height: 10vh;
+  top: 19.5vh;
+  padding-left: 18px;
+  background-color: rgb(32, 31, 31, 0.8);
+  display: flex;
+  align-items: center;
+  z-index: 9; /* Asegura que el nav esté delante del video */
+  position: fixed;
+  box-sizing: border-box;
+}
+#menu ul, #menu li {
+	margin: 0 auto;
+	padding: 0;
+	list-style: none
+}
+#menu ul {
+	width: 100%;
+	text-align: left;
+}
+#menu li {
+	display: inline-block;
+	position: relative;
+}
+#menu a {
+	display: block;
+	line-height: 10vh; /*alto de fondo del navbar*/
+	padding: 0 14px;
+	text-decoration: none;
+	color: #FFFFFF;
+	font-size: 100%; /*tamaño letra del menu*/
+  font-family: 'Kanit', sans-serif;
+}
+#menu a.dropdown-arrow:after {
+	content: "\23F7";
+	margin-left: 5px;
+}
+#menu li a:hover {
+	color: #043E04;
+	background: rgb(255, 255, 0,0.7);
+}
+#menu input {
+	display: none;
+	margin: 0;
+	padding: 0;
+	height: 10vh;
+	width: 100%;
+	opacity: 0;
+	cursor: pointer
+}
+#menu label {
+	display: none;
+	line-height: 10vh;
+	text-align: center;
+	position: absolute;
+	left: 35px
+}
+#menu label:before {
+	font-size: 100%;
+	color: #FFFFFF;
+	content: "\2261"; 
+	margin-left: 20px;
+}
+#menu ul.sub-menus{
+	height: auto;
+	overflow: hidden;
+	width: 150%;
+	background: rgb(68, 68, 68, 0.8);
+	position: absolute;
+	z-index: 99;
+	display: none;
+}
+#menu ul.sub-menus li {
+	display: block;
+	text-align: left;
+	width: 100%;
+}
+#menu ul.sub-menus a {
+	color: #FFFFFF;
+	font-size: 100%; /*Tamaño letra del menu classes*/
+  text-align: center;
+}
+#menu li:hover ul.sub-menus {
+	display: block
+}
+#menu ul.sub-menus a:hover{
+	background: rgb(242, 242, 242, 0.8);
+	color: rgb(68, 68, 68, 0.8);
+}
+
+/*MAIN*/
+.cuerpo{
+  margin: 0;
+  padding: 0;
+}
+/* Estilos para la sección de bienvenida */
+.welcome-message {
+  position: relative;
+  width: 100%;
+  height: 100vh; /* Asegura que la sección cubra la altura completa de la pantalla */
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+/* Ajuste del video de fondo */
+.wheat-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Asegura que el video cubra todo el contenedor */
+  z-index: -1; /* Coloca el video detrás del contenido */
+  /* Asegura que el video se mantenga centrado */
+}
+/* Contenedor del texto */
+.text-overlay {
+  position: relative;
+  color: white;
+  text-align: center;
+  z-index: 1;
+  padding: 0 20px; /* Espaciado para pantallas pequeñas */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+/* Estilos para el SVG */
+svg {
+  font-family: "Agbalumo", system-ui;
+  width: 100%;
+  height: auto; /* Ajusta la altura automáticamente */
+  margin-bottom: 20px; /* Espacio entre el SVG y el texto */
+}
+svg text {
+  animation: stroke 5s infinite alternate;
+  stroke-width: 2;
+  stroke: #ffffff;
+  font-size: 7vw; /* Tamaño de fuente responsivo */
+  transform: translateY(20%); /* Ajusta la distancia vertical */
+}
+/* Animación para el texto */
+@keyframes stroke {
+  0% {
+    fill: rgba(72,138,204,0);
+    stroke: #ffffff;
+    stroke-dashoffset: 25%;
+    stroke-dasharray: 0 50%;
+    stroke-width: 2;
+  }
+  70% {
+    fill: rgba(72,138,204,0);
+    stroke: #ffffff;
+  }
+  80% {
+    fill: rgba(72,138,204,0);
+    stroke: #ffffff;
+    stroke-width: 3;
+  }
+  100% {
+    fill: #ffffff;
+    stroke: rgba(54,95,160,0);
+    stroke-dashoffset: -25%;
+    stroke-dasharray: 50% 0;
+    stroke-width: 0;
+  }
+}
+/* Estilos para los párrafos de texto */
+.subtext, .profesor {
+  font-family: 'Kanit', sans-serif;
+  color: #ffffff;
+  margin: 15px 0; /* Espaciado entre párrafos */
+  text-align: center; /* Alinea el texto al centro */
+}
+.subtext {
+  font-size: 2.2vw; /* Tamaño de fuente responsivo */
+}
+.profesor {
+  font-size: 1.5vw; /* Tamaño de fuente responsivo */
+}
+
+/*ESTILOS A SECCION CURSOS*/
+.cursos {
+  margin: 0;
+  border-top: 1vw solid #043E04;
+  font-family: 'Kanit', sans-serif;
+  padding: 7% 0;
+  overflow-x: hidden;
+  background-image: url('/img/fondoverdeoscuro.jpg');
+  background-size: cover;
+  background-position: center;
+}
+.cursos h1{
+  margin: 0;
+  padding-bottom: 10px;
+  color: #FFFFFF;
+  text-align: center;
+  font-size: 200%;
+}
+.carousel {
+  position: relative;
+  width: 100%;
+  max-width: 500px;
+  margin: auto;
+  overflow: hidden;
+}
+.carousel-slide {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
+.carousel-item {
+  min-width: 100%;
+  box-sizing: border-box;
+  position: relative;
+  text-align: center; /* Centra el contenido dentro del carrusel */
+  overflow: hidden; /* Oculta el contenido que se desborda */
+  border-radius: 10px;
+}
+.carousel-item img {
+  width: 100%;
+  height: 400px; /* Establece la altura deseada */
+  object-fit: cover; /* Ajusta la imagen para cubrir el área sin distorsionar */
+  display: block;
+}
+.carousel-caption {
+  position: absolute;
+  width: 30%;
+  bottom: 20px; /* Ajusta según tus necesidades */
+  left: 50%; /* Centra horizontalmente */
+  transform: translateX(-50%); /* Ajusta el elemento al centro */
+  color: #fff;
+  background: rgba(0, 0, 0, 0.5);
+  padding: 10px;
+  border-radius: 5px;
+  text-align: center; /* Centra el texto dentro del caption */
+}
+.carousel-caption h3 {
+  margin: 0;
+  font-size: 150%;
+}
+.btn {
+  display: inline-block;
+  width: 50%;
+  margin-top: 10px;
+  padding: 10px 20px;
+  color: yellow;
+  font-size: 110%;
+  background-color: rgb(4, 62, 4, 0.8);
+  text-decoration: none;
+  border-radius: 5px;
+}
+.btn:hover {
+  background-color: rgb(7, 187, 7, 0.8);
+  color: #ffffff;
+}
+.prev, .next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.3);
+  color: #fff;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  z-index: 1;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  transition: background-color 0.3s;
+}
+.prev {
+  left: 10px;
+}
+.next {
+  right: 10px;
+}
+.prev:hover, .next:hover {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+/*SECCION TIMETABLE*/
+.horarios{
+  background-color: #043E04;
+  border-top: 0.5vw solid yellow;
+  border-bottom: 0.8vw solid yellow;
+  padding: 7% 0;
+}
+.horarios h1{
+  padding: 0 2%;
+}
+.timetable{
+  margin-top: 0; /*distancia de altura desde el borde superior al top de pantalla*/
+  font-size: 200%;
+  color:#FFFFFF;
+  text-align: center;
+  font-family: 'Kanit', sans-serif;
+}
+table{
+  width: 100%;
+  margin-top: 2%;
+  border-collapse: collapse; /*Elimina la doble linea combinadolas en una*/
+  margin-left: auto;
+  margin-right: auto;
+}
+th, td{
+  border: 3px solid rgb(4, 62, 4);
+  padding: 10px;
+  text-align: center;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-weight: bold;
+}
+.days{
+  color: white;
+  font-size: 1.3vw;
+  text-shadow: 0px 0px 3px black;
+  font-style: italic;
+  background-color: rgb(6, 252, 6);
+}
+.hora{
+  background-color: orange;
+  font-style: italic;
+  font-size: 1.3vw;
+}
+.clase{
+  background-color: rgb(253, 253, 86);
+  font-size: 1.3vw;
+}
+.vacio{
+  background-color: black;
+}
+
+/*SECCION CALENDARIO*/
+.calendar{
+  padding: 2% 5%;
+  background-color: rgb(32, 31, 31);
+}
+.calendar h1{
+  margin: 0;
+  font-size: 200%;
+  text-align: center;
+  font-family: 'Kanit', sans-serif;
+  color: #FFFFFF;
+  padding-bottom: 10px;
+  
+}
+
+/*ESTILOS AL DICCIONARIO */
+.diccionario{
+  width: 100%;
+  border-top: 1vw solid yellow;
+  padding: 7% 0;
+  background-image: url('/img/blue.jpg');
+  background-size: cover;
+  background-position: center;
+  color: white;
+  text-align: center; /*Centra todo lo que esta en la columna: textos e imagenes*/
+  font-family: Arial, Helvetica, sans-serif;
+}
+.translator{ /*IMAGEN principal del traductor*/
+  width: 30%;
+  border-radius: 5px;
+  margin-top: 30px;
+  box-shadow: 1px 1px 5px rgb(4, 62, 4);
+}
+.diccionario h2{
+  color: yellow;
+  font-size: 3vw;
+  padding: 0 2%;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+.diccionario p{
+  padding: 0 2%;
+  font-size: 1.5vw;
+}
+.spanishdict-enlace{
+  width: 30%;
+  padding-bottom: 20px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.boton-enlace {
+  padding: 1% 2%;
+  font-size: 2vw;
+  text-align: center;
+  text-decoration: none;
+  background-color: #4CAF50; /* Color de fondo del botón, puedes cambiarlo según tus preferencias */
+  color: white; /* Color del texto del botón */
+  border: 2px solid yellow; /* Borde del botón */
+  border-radius: 5px; /* Bordes redondeados del botón */
+  transition: background-color 0.3s; /* Efecto de transición para el color de fondo */
+  cursor: pointer;
+}
+.boton-enlace:hover {
+  background-color: rgb(4, 62, 4); /* Cambia el color de fondo al pasar el mouse sobre el botón */
+  color: yellow; /* Cambia el color del texto al pasar el mouse sobre el botón */
+}
+
+/*SECCION CONTACTO*/
+.contacto{
+  font-family: 'Kanit', sans-serif;
+  background-image: url('/img/wheat-field-waving-wind-field-background.jpg');
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: auto;
+  margin: 0;
+  padding: 5% 0;
+}
+.contact-form{
+  background-color: rgb(255, 255, 255,0.5);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0);
+  max-width: 400px;
+  width: 100%;
+}
+form h2 {
+  margin-bottom: 20px;
+  text-align: center;
+  font-size: 200%;
+}
+form label {
+  display: block;
+  margin-bottom: 5px;
+  font-size: 150%;
+}
+form input, form textarea {
+  width: 95%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid rgb(173, 169, 169);
+  border-radius: 5px;
+}
+form button {
+  width: 100%;
+  padding: 10px;
+  background-color: #5cb85c;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  font-size: 100%;
+  cursor: pointer;
+}
+form button:hover {
+  background-color: rgb(4, 62, 4); /* Cambia el color de fondo al pasar el mouse sobre el botón */
+  color: yellow; /* Cambia el color del texto al pasar el mouse sobre el botón */
+}
+
+/* FOOTER */
+footer {
+  width: 100%;
+  border-top: 1.3vw solid rgb(32, 31, 31);
+  border-bottom: 1vw solid yellow;
+  background-color: rgb(4, 62, 4);
+  padding-top: 1%;
+}
+footer p {
+  color: white;
+  font-family: Arial, Helvetica, sans-serif;
+  font-style: italic;
+  font-size: 100%;
+  text-align: center;
+}
+.icon-envelope, .icon-whatsapp {
+  margin-right: 10px;
+}
+.redes {
+  margin-top: 25px;
+  padding-bottom: 3%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+.logo-escuela, .escuela {
+  width: 12%;
+  border-radius: 10px 0px;
+  margin-bottom: 15px;
+  box-shadow: 0 0 5px yellow;
+}
+.escuela {
+  width: 35%;
+  margin-bottom: 30px;
+}
+.iconos {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+}
+a {
+  text-decoration: none; /* para quitar los subrayados a los enlaces */
+}
+.icon-facebook2, .icon-instagram {
+  font-size: 150%; /* Tamaño de los iconos en font */
+  color: yellow;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+.icon-facebook2:hover, .icon-instagram:hover {
+  color: orange;
+  transform: scale(1.2);
+}
+
+/*---------------------------------------------------------------------------------------*/
+
+/* MEDIA QUERIES PARA RESPONSIVIDAD */
+@media screen and (max-width: 800px) {
+  
+  /*ESTILOS AL HEADER*/
+  .cabecera{
+    height: 10vh;
+  }
+    #logo{
+    max-width: 10vw;
+  }
+  #nombre_pagina{
+    max-width: 45vw;
+  }
+  
+  /*AVATAR*/
+  #user-avatar {
+    max-width: 9vw; /* Tamaño máximo para evitar que se expanda demasiado */
+  }
+  .dropdown-content {
+    min-width: 100px; /* Anchura mínima del menú */
+  }
+  .dropdown-content a {
+    font-size: 3vw;
+  }
+
+  /*ESTILOS AL NAV-BAR*/
+  #menu {position:fixed; top: 11vh; height: 7vh;}
+  #menu input, #menu label {position:absolute; display:block; left: 0; } /*Menu hamburguesa alineado a la izq*/
+  #menu input {z-index:4}
+  #menu input:checked + label {color:#FFFFFF;}
+  #menu input:checked + label:before {content:"\00d7"} /*Caracter de una X */
+  #menu input:checked ~ ul {display:block}
+  #menu label:before{font-size: 5vw;} /* Ajusta este valor para cambiar el tamaño del ícono */
+  #menu ul {background:rgb(68, 68, 68, 0.8);position:absolute;top:100%;right:0;left:0;z-index:3;height:auto;display:none;text-align:left;}
+  #menu ul.sub-menus {width:100%;position:static;}
+  #menu ul.sub-menus a {padding-left:30px;}
+  #menu li {display:block;float:none;width:auto;}
+
+  /*MAIN*/
+  .welcome-message {
+    position: relative;
+    width: 100%;
+    height: 100vh; /* Asegura que la sección cubra la altura completa de la pantalla */
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  /* Ajuste del video de fondo */
+  .wheat-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Asegura que el video cubra todo el contenedor */
+    z-index: -1; /* Coloca el video detrás del contenido */
+    /* Asegura que el video se mantenga centrado */
+  }
+  /* Contenedor del texto */
+  .text-overlay {
+    position: relative;
+    color: white;
+    text-align: center;
+    z-index: 1;
+    padding: 0 20px; /* Espaciado para pantallas pequeñas */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  /* Estilos para el SVG */
+  svg {
+    font-family: "Agbalumo", system-ui;
+    width: 100%;
+    height: auto; /* Ajusta la altura automáticamente */
+    margin-bottom: 20px; /* Espacio entre el SVG y el texto */
+  }
+  svg text {
+    animation: stroke 5s infinite alternate;
+    stroke-width: 2;
+    stroke: #ffffff;
+    font-size: 12vw; /* Tamaño de fuente responsivo */
+    transform: translateY(10%); /* Ajusta la distancia vertical */
+  }
+  .subtext {
+    font-size: 4vw; /* Tamaño de fuente responsivo */
+  }
+  .profesor {
+    font-size: 3vw; /* Tamaño de fuente responsivo */
+  }
+
+  /*SECCION TIMETABLE*/
+  .horarios h1{
+    font-size: 6vw;
+  }
+  .days{
+    font-size: 2vw;
+  }
+  .hora{
+    font-size: 2vw;
+  }
+  .clase{
+    font-size: 2vw;
+  }
+
+  /*ESTILOS AL DICCIONARIO */
+  .translator{ /*IMAGEN principal del traductor*/
+    width: 50%;
+  }
+  .diccionario h2{
+    font-size: 6vw;
+  }
+  .diccionario p{
+    font-size: 4vw;
+  }
+  .spanishdict-enlace{
+    width: 50%;
+  }
+  .boton-enlace {
+    font-size: 4vw;
+  }
+
+  /*SECCION CONTACTO*/
+  .contact-form{
+    max-width: 300px;
+  }
+  form input, form textarea {
+    width: 93%;
+  }
+
+  /* FOOTER */
+  footer p {
+    font-size: 3vw;
+    padding: 0 40px;
+  }
+}

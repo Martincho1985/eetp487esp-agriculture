@@ -1,0 +1,364 @@
+body{
+    margin: 0;
+    padding: 0;
+}
+  
+/*ESTILOS AL HEADER*/
+.cabecera{
+    width: 100%;
+    height: 17vh;
+    border-top: 1vw solid rgb(255, 255, 0);
+    border-bottom: 0.5vw solid rgb(255, 255, 0);
+    background-color: rgb(4, 62, 4);
+    display: flex; 
+    align-items: center; /*alinea logo y nombre al centro horizontalmente*/
+    justify-content: space-between; /* Distribuye el espacio entre los elementos */
+    z-index: 10; /* Asegura que el header esté delante del video */
+}
+.logo-container {
+    display: flex;
+    align-items: center;
+    width: 60%; /* Ajusta según sea necesario */
+}
+#logo{
+    width: 100%;
+    max-width: 7vw;
+    padding-left: 10px;
+}
+#nombre_pagina{
+    width: 100%;
+    max-width: 35vw;
+}
+  
+/*AVATAR*/
+/* Menú de usuario */
+.user-menu {
+    margin-right: 2%; /* Distancia de 15px del borde derecho */
+    position: relative;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+#user-avatar {
+    width: 100%; /* Ajusta el tamaño del avatar según tus preferencias */
+    max-width: 5vw; /* Tamaño máximo para evitar que se expanda demasiado */
+    height: auto; /* Mantiene la proporción de la imagen */
+    background-color: yellow;
+    border-radius: 50%;
+}
+.dropdown-content {
+    display: none;
+    position: absolute;
+    right: 0; /* Alinea el menú desplegable al lado derecho del avatar */
+    top: 100%; /* Coloca el menú debajo del avatar */
+    background-color: rgb(68, 68, 68, 0.8);
+    min-width: 150px; /* Anchura mínima del menú */
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 100;
+    text-align: center;
+}
+.dropdown-content a {
+    color: #FFFFFF;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    font-family: 'Kanit', sans-serif;
+    font-size: 100%;
+}
+.dropdown-content a:hover {
+    background: rgb(255, 255, 0, 0.7);
+    color: #043E04;
+}
+/* Mostrar el menú desplegable al pasar el ratón por encima */
+.user-menu:hover .dropdown-content {
+    display: block;
+}
+  
+/*ESTILOS AL NAV-BAR*/
+#menu{
+    width: 100%;
+    height: 10vh;
+    top: 19.5vh;
+    padding-left: 18px;
+    background-color: rgb(32, 31, 31);
+    display: flex;
+    align-items: center;
+    z-index: 9; /* Asegura que el nav esté delante del video */
+    box-sizing: border-box;
+}
+  #menu ul, #menu li {
+    margin: 0 auto;
+    padding: 0;
+    list-style: none
+}
+#menu ul {
+    width: 100%;
+    text-align: left;
+}
+#menu li {
+    display: inline-block;
+    position: relative;
+}
+#menu a {
+    display: block;
+    line-height: 10vh; /*alto de fondo del navbar*/
+    padding: 0 14px;
+    text-decoration: none;
+    color: #FFFFFF;
+    font-size: 100%; /*tamaño letra del menu*/
+    font-family: 'Kanit', sans-serif;
+}
+#menu li a:hover {
+    color: #043E04;
+    font-weight: bolder;
+    background: rgb(255, 255, 0);
+}
+#menu input {
+    display: none;
+    margin: 0;
+    padding: 0;
+    height: 10vh;
+    width: 100%;
+    opacity: 0;
+    cursor: pointer
+}
+#menu label {
+    display: none;
+    line-height: 10vh;
+    text-align: center;
+    position: absolute;
+    left: 35px
+}
+#menu label:before {
+    font-size: 100%;
+    color: #FFFFFF;
+    content: "\2261"; 
+    margin-left: 20px;
+}
+
+/*MAIN*/
+.curso{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: 0;
+    background-image: url('/img/campo3.jpg');
+    background-size: cover;
+    background-position: center;
+}
+.cuerpo-curso{
+    position: relative; /* Set position to relative */
+    z-index: 1; /* Set z-index to 1 (higher than #paisaje) */
+    width: 80%; /* Ajusta según sea necesario */
+    max-width: 1000px; /* Ajusta según sea necesario */
+    height: 650px;
+    background-color: rgb(247, 247, 169,0.6);
+    text-align: center;
+    display: inline-block;
+    /* Aplicar la imagen de fondo */
+    background-image: url('/img/paisaje.png');
+    background-size: 100%; /* Asegura que la imagen cubra todo el contenedor */
+    background-position: center bottom ; /* Coloca la imagen en la parte inferior */
+    background-repeat: no-repeat;
+}
+.cuerpo-curso h1{
+    color: rgb(4, 62, 4);
+    font-family: 'Kanit', sans-serif;
+    font-size: 400%;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+.cuerpo-curso h2{
+    color: yellow;
+    font-family: 'Kanit', sans-serif;
+    font-size: 300%;
+    background-color: rgb(4, 62, 4);
+    margin-top: 0;
+    border-bottom: 10px solid orange;  
+}
+.unidades{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+.unit {
+    background-color: rgb(4, 62, 4);
+    font-family: 'Kanit', sans-serif;
+    font-size: 200%;
+    border-radius: 10px;
+    border: 3px solid yellow;
+    width: 150px;
+    height: 150px;
+    padding: 15px;
+    transition: transform 0.3s ease;
+}
+.unit a{
+    color: yellow;
+    width: 100%; /*el enlace toma el 100% de todo el contenido de la caja*/
+    height: 100%;
+    display: flex; /*centra todo el contenido dentro del div*/
+    align-items: center;
+    justify-content: center;
+}
+.unit:hover{
+    background-color: orange;
+    transform: scale(1.1);
+}
+.unit a:hover{
+    color: black;
+}
+#download{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+    width: 250px;
+    height: 40px;
+    margin-top: 50px;
+    background-color: orange;
+    border: 3px solid rgb(4, 62, 4);
+    border-radius: 10px;
+    color: black;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    font-size: 20px;
+    position: relative; /* Set position to relative */
+    z-index: 2; /* Set z-index higher than #cuerpo but lower than #paisaje */
+}
+#download:hover {
+    background-color: green;
+    color: white;
+}
+
+
+/* FOOTER */
+footer {
+    width: 100%;
+    border-top: 1.3vw solid rgb(32, 31, 31);
+    border-bottom: 1vw solid yellow;
+    background-color: rgb(4, 62, 4);
+    padding-top: 1%;
+}
+footer p {
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    font-style: italic;
+    font-size: 100%;
+    text-align: center;
+}
+.icon-envelope, .icon-whatsapp {
+    margin-right: 10px;
+}
+.redes {
+    margin-top: 25px;
+    padding-bottom: 3%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+.logo-escuela, .escuela {
+    width: 12%;
+    border-radius: 10px 0px;
+    margin-bottom: 15px;
+    box-shadow: 0 0 5px yellow;
+}
+.escuela {
+    width: 35%;
+    margin-bottom: 30px;
+}
+.iconos {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+}
+a {
+    text-decoration: none; /* para quitar los subrayados a los enlaces */
+}
+.icon-facebook2, .icon-instagram {
+    font-size: 150%; /* Tamaño de los iconos en font */
+    color: yellow;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+.icon-facebook2:hover, .icon-instagram:hover {
+    color: orange;
+    transform: scale(1.2);
+}
+
+/*-----------------------------------------------------------------*/
+
+/* MEDIA QUERIES PARA RESPONSIVIDAD */
+@media screen and (max-width: 800px){
+
+    /*ESTILOS AL HEADER*/
+    .cabecera{
+        height: 10vh;
+    }
+    #logo{
+        max-width: 10vw;
+    }
+    #nombre_pagina{
+        max-width: 45vw;
+    }
+  
+    /*AVATAR*/
+    #user-avatar {
+        max-width: 9vw; /* Tamaño máximo para evitar que se expanda demasiado */
+    }
+    .dropdown-content {
+        min-width: 100px; /* Anchura mínima del menú */
+    }
+    .dropdown-content a {
+        font-size: 3vw;
+    }
+  
+    /*ESTILOS AL NAV-BAR*/
+    #menu {position:relative; top: 0; height: 7vh;}
+    #menu input, #menu label {position:absolute; display:block; left: 0; } /*Menu hamburguesa alineado a la izq*/
+    #menu input {z-index:4}
+    #menu input:checked + label {color:#FFFFFF;}
+    #menu input:checked + label:before {content:"\00d7"} /*Caracter de una X */
+    #menu input:checked ~ ul {display:block}
+    #menu label:before{font-size: 5vw;} /* Ajusta este valor para cambiar el tamaño del ícono */
+    #menu ul {background:rgb(68, 68, 68, 0.8);position:absolute;top:100%;right:0;left:0;z-index:3;height:auto;display:none;text-align:left;}
+    #menu ul.sub-menus {width:100%;position:static;}
+    #menu ul.sub-menus a {padding-left:30px;}
+    #menu li {display:block;float:none;width:auto;}
+
+    /*MAIN*/
+    .cuerpo-curso{
+        height: auto;
+    }
+    .cuerpo-curso h1{
+        font-size: 300%;
+    }
+    .cuerpo-curso h2{
+        font-size: 200%;
+        border-bottom: 5px solid orange; 
+    }
+    .unit {
+        font-size: 20px;
+        width: 90px;
+        height: 90px;
+        margin: 15px;
+    }
+    #download{
+        width: 200px;
+        height: 35px;
+        margin-top: 15px;
+        font-size: 15px;
+        margin-bottom: 70px;
+    }
+    
+    /* FOOTER */
+    footer p {
+        font-size: 3vw;
+        padding: 0 40px;
+    }
+}
