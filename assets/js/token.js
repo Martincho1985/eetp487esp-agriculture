@@ -1,0 +1,1 @@
+document.getElementById('token').value = window.location.pathname.split('/').pop();

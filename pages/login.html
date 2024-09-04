@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" translate="no">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta author="Leiva Martin">
+  <title>Login</title>
+  <link rel="icon" type="segador.png" href="/img/tractores.png">
+  <link rel="stylesheet" href="/css/estilosComunes.css">
+  <link rel="stylesheet" href="/css/log-reg.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Kanit&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Agbalumo&family=Oswald:wght@200..700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/font/iconos.css">
+   <!-- SweetAlert CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+</head>
+<body>
+  <header class="header-logreg">
+    <img id="logo" src="/img/logo.png" alt="logo">
+    <img id="nombre_pagina" src="/img/nombre_pagina.png" alt="">
+  </header> 
+  <main class="log-reg">
+    <div class="form-container">
+      <h1>Login</h1>
+      <p>Access the web platform.</p>
+      <form id="login-form" action="/api/auth/login" method="POST">
+
+        <label for="username" class="sr-only">User</label>
+        <input type="text" name="username" id="username" placeholder="Username">
+        
+        <label for="password" class="sr-only">Password</label>
+        <div class="password-container">
+          <input type="password" name="password" id="password" placeholder="Password"><span class="toggle-password" onclick="togglePassword('password', this)">👁️</span>
+        </div>
+
+        <!-- Recordatorio de datos -->
+        <div class="recordar">
+          <input type="checkbox" id="remember" name="remember">
+          <label for="remember">Remember me</label>
+        </div>
+
+        <button type="submit">Log in</button>
+      </form>
+      <a href="/forgotPassword">Forgot your password?</a>
+      <p>Don't have an account yet?  - <a href="/register">Sign up</a></p>
+    </div>
+    <script type="text/javascript" src="/js/showPass.js"></script>
+    <script type="text/javascript" src="/js/rememberData.js"></script>
+    <!-- SweetAlert JS -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="/js/login.js" defer></script>
+  </main>
+  <footer class="foot-logReg">
+    <p>"Learning English opens doors to new opportunities and broadens your world. Keep pushing forward, and soon you'll be speaking with confidence and ease."</p>
+  </footer>
+</body>
+</html>

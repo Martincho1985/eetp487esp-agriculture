@@ -1,0 +1,84 @@
+// register.js
+
+document.getElementById('register-form').addEventListener('submit', async (event) => {
+  event.preventDefault();
+
+  const username = document.getElementById('username').value;
+  const email = document.getElementById('email').value;
+  const password = document.getElementById('password').value;
+  const repeatPassword = document.getElementById('repeat-password').value;
+  const role = document.getElementById('role').value;
+  const accessCode = document.getElementById('access-code').value;
+  const teacherAccessCode = "DOC487CAS"; // Código de acceso para docentes
+
+
+  if (password !== repeatPassword) {
+    Swal.fire({
+      icon: 'error',
+      title: 'Registration Error',
+      text: 'Passwords do not match.',
+      background: '#fff',
+      confirmButtonColor: '#d33',
+      confirmButtonText: 'OK'
+    });
+    return;
+  }
+
+  // Verificar el código de acceso si el rol es 'teacher'
+  if (role === 'teacher' && accessCode !== teacherAccessCode) {
+    Swal.fire({
+      icon: 'error',
+      title: 'Access Code Error',
+      text: 'Invalid access code for teacher registration.',
+      background: '#fff',
+      confirmButtonColor: '#d33',
+      confirmButtonText: 'OK'
+    });
+    return;
+  }
+
+  try {
+    const response = await fetch('/api/auth/register', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ username, email, password, role })
+    });
+
+    if (response.ok) {
+      // Si el registro es exitoso, redirigir al login o mostrar un mensaje de éxito
+      Swal.fire({
+        icon: 'success',
+        title: 'Registration Successful',
+        text: 'Your account has been successfully created.',
+        background: '#fff',
+        confirmButtonColor: '#3085d6',
+        confirmButtonText: 'OK'
+      }).then(() => {
+        window.location.href = '/';
+      });
+    } else {
+      // Si hay un error de registro, mostrar un SweetAlert con el mensaje de error
+      const { error } = await response.json();
+      Swal.fire({
+        icon: 'error',
+        title: 'Registration error',
+        text: 'User already registered with that email or username.',
+        background: '#fff',
+        confirmButtonColor: '#d33',
+        confirmButtonText: 'OK'
+      });
+    }
+  } catch (error) {
+    console.error('Error durante el registro:', error);
+    Swal.fire({
+      icon: 'error',
+      title: 'Error de servidor',
+      text: 'Error al conectar con el servidor',
+      background: '#fff',
+      confirmButtonColor: '#d33',
+      confirmButtonText: 'OK'
+    });
+  }
+});

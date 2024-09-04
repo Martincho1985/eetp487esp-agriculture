@@ -152,7 +152,7 @@ body{
     z-index: 1; /* Set z-index to 1 (higher than #paisaje) */
     width: 80%; /* Ajusta según sea necesario */
     max-width: 1000px; /* Ajusta según sea necesario */
-    height: 650px;
+    height: auto;
     background-color: rgb(247, 247, 169,0.6);
     text-align: center;
     display: inline-block;
@@ -175,48 +175,90 @@ body{
     font-size: 300%;
     background-color: rgb(4, 62, 4);
     margin-top: 0;
+    padding: 10px 0;
     border-bottom: 10px solid orange;  
 }
 .unidades{
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
+    gap: 40px; /* Agrega espacio entre las cajas */
+    padding: 10px 30px 60px 30px; /* Añade espacio interno alrededor del contenedor */
 }
 .unit {
-    background-color: rgb(4, 62, 4);
-    font-family: 'Kanit', sans-serif;
-    font-size: 200%;
+    position: relative;
+    width: 250px;
+    height: 250px;
     border-radius: 10px;
-    border: 3px solid yellow;
-    width: 150px;
-    height: 150px;
-    padding: 15px;
+    overflow: hidden;
     transition: transform 0.3s ease;
-}
-.unit a{
-    color: yellow;
-    width: 100%; /*el enlace toma el 100% de todo el contenido de la caja*/
-    height: 100%;
-    display: flex; /*centra todo el contenido dentro del div*/
+    display: flex;
     align-items: center;
     justify-content: center;
+    text-align: center;
+    box-shadow: 0 6px 10px rgba(0, 0, 0);
+}
+.unit::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    filter: brightness(0.7); /* Oscurece ligeramente la imagen para que el texto resalte más */
+    z-index: 1;
+}
+.unit::after {
+    content: "";
+    position: absolute;
+    top: 50%; /* Posiciona la capa al centro verticalmente */
+    left: 50%;
+    transform: translate(-50%, -50%); /* Centra la capa respecto al texto */
+    width: 100%;
+    height: 20%; /* Ajusta la altura de la capa para cubrir el texto */
+    background-color: rgba(255, 255, 255, 0.4); /* Fondo blanco semitransparente */
+    z-index: 2;
+}
+.unit a{
+    position: relative;
+    z-index: 3;
+    color: rgb(4, 62, 4);
+    text-shadow: 2px 2px 4px yellow; 
+    font-family: 'Kanit', sans-serif;
+    font-size: 200%;
+    font-weight: bolder;
+    text-decoration: none;
 }
 .unit:hover{
-    background-color: orange;
     transform: scale(1.1);
 }
-.unit a:hover{
-    color: black;
+.unit.year-1::before {
+    background-image: url('/img/1ro.png');
+}
+.unit.year-2::before {
+    background-image: url('/img/2do.png');
+}
+.unit.year-3::before {
+    background-image: url('/img/3ro.png');
+}
+.unit.year-4::before {
+    background-image: url('/img/4to.png');
+}
+.unit.year-5::before {
+    background-image: url('/img/5to.png');
+}
+.unit.year-6::before {
+    background-image: url('/img/6to.png');
 }
 #download{
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-left: auto;
-    margin-right: auto;
+    margin: 50px auto;
     width: 250px;
     height: 40px;
-    margin-top: 50px;
     background-color: orange;
     border: 3px solid rgb(4, 62, 4);
     border-radius: 10px;
@@ -336,17 +378,21 @@ a {
         height: auto;
     }
     .cuerpo-curso h1{
-        font-size: 300%;
+        font-size: 200%;
     }
     .cuerpo-curso h2{
-        font-size: 200%;
-        border-bottom: 5px solid orange; 
+        font-size: 120%;
+    }
+    .unidades{
+        gap: 20px; /* Agrega espacio entre las cajas */
+        padding: 20px 20px 40px 20px; /* Añade espacio interno alrededor del contenedor */
     }
     .unit {
-        font-size: 20px;
-        width: 90px;
-        height: 90px;
-        margin: 15px;
+        width: 150px;
+        height: 150px;
+    }
+    .unit a {
+        font-size: 130%;
     }
     #download{
         width: 200px;

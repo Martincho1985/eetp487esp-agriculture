@@ -1,0 +1,160 @@
+/*ESTILOS AL HEADER*/
+.header-logreg{
+    width: 100%;
+    height: 17vh;
+    border-top: 1vw solid rgb(255, 255, 0);
+    border-bottom: 0.5vw solid rgb(255, 255, 0);
+    background-color: rgb(4, 62, 4);
+    display: flex; 
+    align-items: center; /*alinea logo y nombre al centro horizontalmente*/
+    justify-content: left;
+}
+
+/*ESTILOS AL LOGIN Y SIGN UP*/
+.log-reg {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url('/img/campo3.jpg');
+    background-size: cover;
+    background-position: center;
+    min-height: calc(90vh - 97px); /* Ajuste para header y footer */
+}
+.form-container {
+    background-color: rgba(255, 255, 255, 0.6);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
+    max-width: 400px;
+    width: 100%;
+    margin: 20px;
+    text-align: center;
+    font-family: 'Kanit', sans-serif;
+}
+.form-container h1 {
+    font-size: 2.5em;
+    color: rgb(4, 62, 4);
+    margin: 0;
+}
+.form-container p {
+    font-size: 1.1em;
+    font-weight: 900;
+    color: rgb(4, 62, 4);
+    margin: 10px 0;
+}
+/* Recordatorio de datos */
+.recordar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    font-family: 'Kanit', sans-serif;
+    font-size: 0.7em;
+    font-weight: 900;
+    color: rgb(4, 62, 4);
+}
+.recordar input {
+    margin: 0;
+    padding: 0;
+    width: 20px;
+}
+.recordar label {
+    margin-left: 5px;
+    padding-top: 4px; /*Nivelar el remember me con el checkbox*/
+}
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+input, button {
+    padding: 15px 30px;
+    font-size: 1.1em;
+}
+button {
+    font-weight: bold;
+    cursor: pointer;
+}
+.sr-only {
+    position: absolute;
+    left: -10000px;
+    top: auto;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+}
+.password-container {
+    position: relative;
+}
+.toggle-password {
+    position: absolute;
+    top: 17%;
+    right: 10px;
+    cursor: pointer;
+    transition: color 0.3s, filter 0.3s;
+}
+.toggle-password.visible {
+    filter: none; /* Deshaz cualquier filtro */
+}
+.toggle-password:not(.visible) {
+    filter: grayscale(100%); /* Hacer el ojo blanco y negro */
+}
+.toggle-password::after {
+    content: '';
+    position: absolute;
+    top: 8px;
+    left: 8px;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    border-top: 3px solid rgb(127, 125, 125); /* Línea diagonal gris */
+    transform: rotate(-45deg);
+    transition: opacity 0.3s;
+    opacity: 1;
+}
+.toggle-password.visible::after {
+    opacity: 0; /* Desaparece la línea diagonal cuando se muestra la contraseña */
+}
+a {
+    color: orangered;
+}
+a:hover {
+    color: rgb(45, 4, 223);
+}
+
+/* Estilos para el select de cambio de roles */
+.role{
+    color: rgb(4, 62, 4);
+    font-weight: bold; 
+}
+form select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid rgb(173, 169, 169);
+    border-radius: 5px;
+}
+/* Estilo específico para el select */
+form select {
+    background-color: #ffffff; /* Fondo blanco para el select */
+    color: rgb(110, 104, 104);
+    font-size: 100%;
+    font-weight: bold; 
+}
+   
+/*FOOTER VACIO*/
+.foot-logReg{
+    display: flex;
+    justify-content: center;
+    height: 80px;
+}
+.foot-logReg p{
+    max-width: 500px;
+    color: white;
+    font-style: italic;
+    font-size: 0.8rem;
+    text-align: center;
+    margin-top: 15px;
+    padding: 0 30px;
+}

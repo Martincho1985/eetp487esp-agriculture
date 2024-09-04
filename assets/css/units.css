@@ -52,7 +52,7 @@ h3{
     padding: 10px;
     margin-bottom: 30px; /*Aleja la barra de las unidades del primer titulo*/
 }
-.unit {
+.unidad {
     background-color: orange;
     font-family: 'Kanit', sans-serif;
     font-size: 20px;
@@ -64,7 +64,7 @@ h3{
     padding: 10px;
     transition: transform 0.3s ease;
 }
-.unit a{
+.unidad a{
     color: black;
     width: 100%; /*el enlace toma el 100% de todo el contenido de la caja*/
     height: 100%;
@@ -72,7 +72,7 @@ h3{
     align-items: center;
     justify-content: center;
 }
-.unit:hover{
+.unidad:hover{
     transform: scale(1.2);
 }
 iframe{
@@ -136,7 +136,7 @@ h4{
         font-size: 30px;
         margin-bottom: 7px;
     }
-    .unit {
+    .unidad {
         font-size: 18px;
         width: 90px;
         height: 15px;
@@ -179,7 +179,7 @@ h4{
         margin-top: 20px;
         margin-bottom: 5px;
     }
-    .unit {
+    .unidad {
         font-size: 15px;
         width: 70px;
         height: 15px;
