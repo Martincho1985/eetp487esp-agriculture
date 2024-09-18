@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en" translate="no">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta author="Leiva Martin">
+    <title>Add a New Question</title>
+    <link rel="icon" type="segador.png" href="/img/tractores.png">
+    <link rel="stylesheet" href="/css/quizzes.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kanit&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Agbalumo&family=Oswald:wght@200..700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/font/iconos.css">
+    <!-- SweetAlert CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+</head>
+<body>
+    <header class="cabecera">
+        <div class="logo-container">
+            <a href="/dashboard">
+                <img id="logo" src="/img/logo.png" alt="logo">
+            </a>
+            <img id="nombre_pagina" src="/img/nombre_pagina.png" alt="">
+        </div>
+        <div class="user-menu">
+            <img id="user-avatar" src="/img/pngwing.png" alt="User Avatar">
+            <div class="dropdown-content">
+                <p class="userName"><%= user.username %></p>
+                <p class="userRole"><%= user.role %></p>
+                <a href="/perfil">Perfil</a>
+                <a href="/api/auth/logout">Log Out</a>
+            </div>
+        </div>
+    </header>
+    <main class="fondo">
+        <div class="container new">
+            <h1>Add A New Question</h1>
+            <form action="/new-question" method="POST" class="form-container">
+                <div class="form-group">
+                    <label for="course">Course:</label>
+                    <input type="text" id="course" name="course" placeholder="Eg: '1', ' 1st' or 'First'" required>
+                </div>
+    
+                <div class="form-group">
+                    <label for="unit">Unit:</label>
+                    <input type="text" id="unit" name="unit" placeholder="Eg: '1', ' One', 'Revision' or 'Verb to be'" required>
+                </div>
+    
+                <div class="form-group">
+                    <label for="question">Question:</label>
+                    <textarea id="question" name="question" rows="3" placeholder="Eg: What´s you name?" required></textarea>
+                </div>
+    
+                <div class="form-group">
+                    <label for="options">Options (separated by comas):</label>
+                    <textarea id="options" name="options" rows="2" placeholder="Eg: I´m Luke., 15, Summer, Nice to meet you." required></textarea>
+                </div>
+    
+                <div class="form-group">
+                    <label for="correctAnswer">Correct Answer:</label>
+                    <input type="text" id="correctAnswer" name="correctAnswer" placeholder="Eg: I´m Luke" required>
+                </div>
+    
+                <div class="form-group">
+                    <label for="feedback">Feedback:</label>
+                    <textarea id="feedback" name="feedback" rows="2" placeholder="Give feedback (optional)"></textarea>
+                </div>
+    
+                <div class="form-group">
+                    <input type="submit" value="Add Question">
+                    <a href="/question-bank" class="btn-clear">Question Bank</a>
+                </div>
+            </form>
+        </div>
+        <!-- SweetAlert JS -->
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <script src="/js/newQ-alert.js"></script>
+    </main>
+    <footer>
+        <p>Copyright © 2024 - Leiva Martín R.</p>
+        <p><span class="icon-envelope"></span>englishcultivatehub@gmail.com &emsp;|| &emsp;<span class="icon-whatsapp"></span>(3482)-666150</p> 
+        <div class="redes">
+            <img class="logo-escuela" src="/img/logo_escuela.jpeg" alt="logo_escuela">
+            <img class="escuela" src="/img/agrotecnica.jpg" alt="Escuela">
+            <div class="iconos">
+                <a href="https://www.facebook.com/groups/174789172685781" target="_blank" class="icon-facebook2"></a>
+                <a href="https://www.instagram.com/agro487cas/?hl=es-la" target="_blank" class="icon-instagram"></a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

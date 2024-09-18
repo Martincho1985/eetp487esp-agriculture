@@ -1,0 +1,393 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+/*ESTILOS AL HEADER*/
+.cabecera{
+    width: 100%;
+    height: 17vh;
+    border-top: 1vw solid rgb(255, 255, 0);
+    border-bottom: 0.5vw solid rgb(255, 255, 0);
+    background-color: rgb(4, 62, 4);
+    display: flex; 
+    align-items: center; /*alinea logo y nombre al centro horizontalmente*/
+    justify-content: space-between; /* Distribuye el espacio entre los elementos */
+    z-index: 10; /* Asegura que el header esté delante del video */
+}
+.logo-container {
+    display: flex;
+    align-items: center;
+    width: 60%; /* Ajusta según sea necesario */
+}
+#logo{
+    width: 100%;
+    max-width: 7vw;
+    padding-left: 10px;
+}
+#nombre_pagina{
+    width: 100%;
+    max-width: 35vw;
+}
+  
+/*AVATAR*/
+/* Menú de usuario */
+.user-menu {
+    margin-right: 2%; /* Distancia de 15px del borde derecho */
+    position: relative;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+#user-avatar {
+    width: 100%; /* Ajusta el tamaño del avatar según tus preferencias */
+    max-width: 5vw; /* Tamaño máximo para evitar que se expanda demasiado */
+    height: auto; /* Mantiene la proporción de la imagen */
+    background-color: yellow;
+    border-radius: 50%;
+}
+.dropdown-content {
+    display: none;
+    position: absolute;
+    right: 0; /* Alinea el menú desplegable al lado derecho del avatar */
+    top: 100%; /* Coloca el menú debajo del avatar */
+    background-color: rgb(68, 68, 68, 0.8);
+    min-width: 150px; /* Anchura mínima del menú */
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 100;
+    text-align: center;
+}
+.dropdown-content a {
+    color: #FFFFFF;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    font-family: 'Kanit', sans-serif;
+    font-size: 100%;
+}
+.dropdown-content a:hover {
+    background: rgb(255, 255, 0, 0.7);
+    color: #043E04;
+}
+/* Mostrar el menú desplegable al pasar el ratón por encima */
+.user-menu:hover .dropdown-content {
+    display: block;
+}
+.userName{
+    padding: 5px 0;
+    margin: 0;
+    font-family:'Kanit', sans-serif;
+    font-size: 130%;
+    font-style: italic;
+    color: yellow;
+    background-color:rgb(86, 169, 86);
+}
+.userRole{
+    padding: 5px 0;
+    margin: 0;
+    font-family:'Kanit', sans-serif;
+    color: red;
+    font-size: 120%;
+    background-color: rgb(255, 255, 0, 0.8);
+    border-bottom: 5px solid #043E04;
+}
+
+/*MAIN*/
+.fondo{
+    margin: 0;
+    padding: 0;
+    font-family: 'Kanit', sans-serif;
+    /* display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column; */
+    background: rgb(11,24,1);
+    background: linear-gradient(180deg, rgba(11,24,1,1) 0%, rgba(30,64,2,1) 50%, rgba(67,107,4,1) 100%);
+}
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+h1 {
+    color: rgb(255, 255, 0);
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/*Botón de agregar nueva pregunta en QUESTION BANK*/
+a.add-question {
+    display: block;
+    width: 200px;
+    margin: 0 auto 20px auto;
+    text-align: center;
+    padding: 10px;
+    background-color: greenyellow;
+    color: rgb(4, 62, 4);
+    font-weight: bolder;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+a.add-question:hover {
+    background-color: yellow;
+    color: rgb(182, 99, 4);
+    transform: scale(1.1);
+}
+
+/*Formulario de filtrado de preguntas*/
+form {
+    background: rgb(255, 255, 255, 0.9);
+    padding: 20px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+label {
+    display: block;
+    margin-bottom: 5px;
+    color: #000000;
+    font-weight: bold;
+}
+/*Estilos al formulario Question bank de Course y Unit */
+select, input[type="submit"] {
+    display: block;
+    margin-bottom: 15px;
+    padding: 8px;
+    font-family: 'Kanit', sans-serif;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    width: 100%;
+    box-sizing: border-box;
+}
+/*Botón FILTER del formulario Question Bank*/
+button {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+.btn {
+    display: inline-block;
+    padding: 7px 20px;
+    background-color: #043E04;
+    font-family: 'Kanit', sans-serif;
+    color:yellow; 
+    font-size: 100%;
+    text-decoration: none;
+    border-radius: 5px;
+    text-align: center;
+    cursor: pointer;
+    margin-top: 5px;
+}
+.btn:hover {
+    color: #043E04;
+    background-color: yellow;
+}
+/*Botón CLEAR-FILTER del formulario Question Bank*/
+.btn-clear {
+    width: 100%;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    display: inline-block;
+    padding: 7px 20px;
+    background-color: #068806;
+    color:rgb(250, 250, 60); 
+    font-size: 100%;
+    text-decoration: none;
+    border-radius: 5px;
+    text-align: center;
+    cursor: pointer;
+    margin-top: 5px;
+}
+.btn-clear:hover {
+    color: #8e0606;
+    background-color: rgb(238, 148, 58);
+}
+
+/*Estilos a las preguntas filtradas y botones editar y borrar*/
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+ul li {
+    background:rgb(207, 250, 142);
+    margin-bottom: 20px;
+    padding: 10px 20px;
+    border: 1px solid rgb(207, 250, 142);
+    border-radius: 5px;
+}
+ul li p {
+    margin: 0;
+    color: #000000;
+}
+.actions form{ /*le quita todo el margen y espacio al boton DELETE dentro del formulario*/
+    background-color: rgb(207, 250, 142);
+    margin: 0;
+    padding: 0;
+}
+ul li form { /*Alinea los botones editar y borrar*/
+    display: inline;
+}
+.actions {
+    text-align: center; /* Centra el contenido dentro del contenedor */
+}
+.actions a {/* Estilo para el botón "Editar" (azul) */
+    background-color: #007BFF;
+    color: white;
+    text-decoration: none;
+    width: 150px; /* Ajusta el ancho a 100px */
+    padding: 8px 0; /* Ajusta el padding para que el texto se alinee bien */
+    text-align: center;
+    border-radius: 4px;
+    display: inline-block; /* Asegura que mantenga el ancho */
+    transition: background-color 0.3s ease;
+    margin-right: 30px;
+}
+.actions a:hover {
+    color: white;
+    background-color: #04376d;
+}
+/* Estilo para el botón "Eliminar" (rojo) */
+.actions form button {
+    background-color: #f44336;
+    color: white;
+    width: 150px; /* Ajusta el ancho a 100px */
+    padding: 8px 0; /* Ajusta el padding para que el texto se alinee bien */
+    text-align: center;
+    border-radius: 4px;
+    display: inline-block; /* Asegura que mantenga el ancho */
+    border: none; /* Quita el borde */
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+.actions form button:hover {
+    color: white;
+    background-color: #a30909;
+}
+
+/*Estilos al formulario de Agregar nueva pregunta*/
+input[type="text"], 
+input[type="submit"],
+textarea, 
+button {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+input[type="submit"], 
+button { /*Estilos a los botones de ACTUALIZAR y AGREGAR pregunta*/
+    background-color: #043E04;
+    color:yellow; 
+    font-size: 100%;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+} 
+input[type="submit"]:hover, 
+button:hover {
+    color: #043E04;
+    background-color: yellow;
+}
+
+/* FOOTER */
+footer {
+    width: 100%;
+    border-top: 1.3vw solid rgb(32, 31, 31);
+    border-bottom: 1vw solid yellow;
+    background-color: rgb(4, 62, 4);
+    padding-top: 1%;
+}
+footer p {
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    font-style: italic;
+    font-size: 100%;
+    text-align: center;
+}
+.icon-envelope, .icon-whatsapp {
+    margin-right: 10px;
+}
+.redes {
+    margin-top: 25px;
+    padding-bottom: 3%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+.logo-escuela, .escuela {
+    width: 12%;
+    border-radius: 10px 0px;
+    margin-bottom: 15px;
+    box-shadow: 0 0 5px yellow;
+}
+.escuela {
+    width: 35%;
+    margin-bottom: 30px;
+}
+.iconos {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+}
+a {
+    text-decoration: none; /* para quitar los subrayados a los enlaces */
+}
+.icon-facebook2, .icon-instagram {
+    font-size: 150%; /* Tamaño de los iconos en font */
+    color: yellow;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+.icon-facebook2:hover, .icon-instagram:hover {
+    color: orange;
+    transform: scale(1.2);
+}
+
+/*-----------------------------------------------------------------*/
+
+/* MEDIA QUERIES PARA RESPONSIVIDAD */
+@media screen and (max-width: 800px){
+
+    /*ESTILOS AL HEADER*/
+    .cabecera{
+        height: 10vh;
+    }
+    #logo{
+        max-width: 10vw;
+    }
+    #nombre_pagina{
+        max-width: 45vw;
+    }
+  
+    /*AVATAR*/
+    #user-avatar {
+        max-width: 9vw; /* Tamaño máximo para evitar que se expanda demasiado */
+    }
+    .dropdown-content {
+        min-width: 100px; /* Anchura mínima del menú */
+    }
+    .dropdown-content a {
+        font-size: 3vw;
+    }
+    .userName{
+        font-size: 100%;
+    }
+    .userRole{
+        font-size: 100%;
+    }
+    
+    /* FOOTER */
+    footer p {
+        font-size: 3vw;
+        padding: 0 40px;
+    }
+}

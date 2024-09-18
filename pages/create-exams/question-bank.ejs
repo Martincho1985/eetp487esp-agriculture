@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en" translate="no">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta author="Leiva Martin">
+    <title>Question Bank</title>
+    <link rel="icon" type="segador.png" href="/img/tractores.png">
+    <link rel="stylesheet" href="/css/quizzes.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kanit&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Agbalumo&family=Oswald:wght@200..700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/font/iconos.css">
+    <!-- SweetAlert CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+
+</head>
+<body>
+    <header class="cabecera">
+        <div class="logo-container">
+            <a href="/dashboard">
+                <img id="logo" src="/img/logo.png" alt="logo">
+            </a>
+            <img id="nombre_pagina" src="/img/nombre_pagina.png" alt="">
+        </div>
+        <div class="user-menu">
+            <img id="user-avatar" src="/img/pngwing.png" alt="User Avatar">
+            <div class="dropdown-content">
+                <p class="userName"><%= user.username %></p>
+                <p class="userRole"><%= user.role %></p>
+                <a href="/perfil">Perfil</a>
+                <a href="/api/auth/logout">Log Out</a>
+            </div>
+        </div>
+    </header>
+    <main class="fondo">
+        <div class="container">
+            <h1>Question Bank</h1>
+            
+            <!-- Botón para agregar nueva pregunta -->
+            <a href="/new-question" class="btn add-question">Add A New Question</a>
+            
+            <!-- Formulario para filtrar por curso y unidad -->
+            <form action="/question-bank" method="GET">
+                <label for="course">Course:</label>
+                <select name="course" id="course">
+                    <option value="">All</option>
+                    <% if (questions && questions.length > 0) { %>
+                      <% questions.map(q => q.course).filter((v, i, a) => a.indexOf(v) === i).forEach(course => { %>
+                        <option value="<%= course %>"><%= course %></option>
+                      <% }) %>
+                    <% } %>
+                </select>
+                  
+                <label for="unit">Unit:</label>
+                <select name="unit" id="unit">
+                    <option value="">All</option>
+                    <% questions.map(q => q.unit).filter((v, i, a) => a.indexOf(v) === i).forEach(unit => { %>
+                        <option value="<%= unit %>"><%= unit %></option>
+                    <% }) %>
+                </select>
+    
+                <button type="submit" class="btn">Filter</button>
+                <a href="/question-bank" class="btn-clear">Clear Filter</a>
+            </form>
+    
+            <!-- Lista de preguntas filtradas -->
+            <ul>
+                <% if (questions.length > 0) { %>
+                    <% questions.forEach(question => { %>
+                        <li>
+                            <p><strong>Course:</strong> <%= question.course %> - <strong>Unit:</strong> <%= question.unit %></p>
+                            <p><strong>Question:</strong> <%= question.question %></p>
+                            <div class="actions">
+                                <a href="/edit-question/<%= question._id %>" class="btn">Edit</a>
+                                <!-- Cada pregunta tiene un botón de eliminar -->
+                                <form id="delete-form-<%= question._id %>" action="/<%= question._id %>?_method=DELETE" method="POST" onsubmit="return confirmDeletion(event, '<%= question._id %>')">
+                                    <button type="submit" class="btn">Delete</button>
+                                </form>
+                            </div>
+                            <!-- SweetAlert JS -->
+                            <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+                            <script src="/js/deleteAlert.js"></script>
+                        </li>
+                    <% }); %>
+                <% } else { %>
+                    <li>No questions were found for the selected filters.</li>
+                <% } %>
+            </ul>
+    
+        </div>
+    </main>
+    <footer>
+        <p>Copyright © 2024 - Leiva Martín R.</p>
+        <p><span class="icon-envelope"></span>englishcultivatehub@gmail.com &emsp;|| &emsp;<span class="icon-whatsapp"></span>(3482)-666150</p> 
+        <div class="redes">
+            <img class="logo-escuela" src="/img/logo_escuela.jpeg" alt="logo_escuela">
+            <img class="escuela" src="/img/agrotecnica.jpg" alt="Escuela">
+            <div class="iconos">
+                <a href="https://www.facebook.com/groups/174789172685781" target="_blank" class="icon-facebook2"></a>
+                <a href="https://www.instagram.com/agro487cas/?hl=es-la" target="_blank" class="icon-instagram"></a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
