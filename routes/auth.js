@@ -46,8 +46,13 @@ router.post('/login', async (req, res) => {
       return res.status(401).json({ error: 'Nombre de usuario o contraseña incorrectos' });
     }
 
-    // Guardar el ID de usuario en la sesión
+    // Guardar el ID de usuario y otros detalles (nombre de usuario, rol) en la sesión
     req.session.userId = user._id;
+    req.session.user = {
+      username: user.username,
+      role: user.role,  // Guardar el rol del usuario para poder usarlo en otras partes de la aplicación
+    };
+
     console.log('Inicio de sesión exitoso');
     res.status(200).json({ message: 'Login exitoso' });
   } catch (err) {

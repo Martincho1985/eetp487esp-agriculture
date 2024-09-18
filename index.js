@@ -24,13 +24,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(session({
   secret: 'tuSecreto',
   resave: false,
-  saveUninitialized: false,
-  cookie: {
-    maxAge: 60000, // La sesión expirará después de 10 minutos de inactividad
-    httpOnly: true,
-    secure: false, // Cambia a true si estás usando HTTPS
-    sameSite: 'strict' // Rechaza cookies de terceros
-  }
+  saveUninitialized: false
 }));
 
 // Servir archivos estáticos
@@ -41,20 +35,26 @@ app.use(express.static(path.join(__dirname, 'pages')));
 app.use('/api/auth', authRoutes); // Rutas de autenticación
 app.use('/api/contact', contactRoutes); // Rutas de contacto
 
+// Configuración de EJS
+app.set('view engine', 'ejs');
+app.set('views', path.join(__dirname, 'pages'));
+
 
 // Rutas protegidas
-app.get('/dashboard', isAuthenticated, (req, res) => {
-  res.sendFile(path.join(__dirname, 'pages', 'dashboard.html'));
+app.get('/dashboard', isAuthenticated, async (req, res) => {
+  const user = req.session.user; // Asumiendo que has guardado el usuario en la sesión
+  res.render('dashboard', { user });
 });
 // Ruta para todas las páginas en '/classes'
 app.get('/classes/:page', isAuthenticated, (req, res) => {
   const { page } = req.params;
-  res.sendFile(path.join(__dirname, 'pages', 'classes', `${page}.html`));
+  res.render(`classes/${page}`, { user: req.session.user });
 });
+
 // Ruta para todas las unidades dentro de '/classes/:classNumber'
 app.get('/classes/:classNumber/:unit', isAuthenticated, (req, res) => {
   const { classNumber, unit } = req.params;
-  res.sendFile(path.join(__dirname, 'pages', 'classes', classNumber, `${unit}.html`));
+  res.render(`classes/${classNumber}/${unit}`, { user: req.session.user });
 });
 
 //Rutas sin restriccion

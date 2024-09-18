@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en" translate="no">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta author="Leiva Martin">
+    <title>English Agriculture</title>
+    <link rel="icon" type="segador.png" href="/img/tractores.png">
+    <link rel="stylesheet" href="/css/estilosComunes.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kanit&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Agbalumo&family=Oswald:wght@200..700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/font/iconos.css">
+       <!-- SweetAlert CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+</head>
+<body>
+    <header class="cabecera">
+        <div class="logo-container">
+            <a href="#welcome-message">
+                <img id="logo" src="/img/logo.png" alt="logo">
+            </a>
+            <img id="nombre_pagina" src="/img/nombre_pagina.png" alt="">
+        </div>
+        <div class="user-menu">
+            <img id="user-avatar" src="/img/pngwing.png" alt="User Avatar">
+            <div class="dropdown-content">
+                <p class="userName"><%= user.username %></p>
+                <p class="userRole"><%= user.role %></p>
+                <a href="/perfil">Perfil</a>
+                <a href="/api/auth/logout">Log Out</a>
+            </div>
+        </div>
+    </header>
+    <nav id='menu'>
+        <input type='checkbox' id='responsive-menu'><label></label>
+        <ul>
+            <li><a class='dropdown-arrow' href='#cursos'>Classes</a>
+                <ul class='sub-menus'>
+                    <li><a href='/classes/first'>1st YEAR</a></li>
+                    <li><a href='/classes/second'>2nd YEAR</a></li>
+                    <li><a href='/classes/third'>3rd YEAR</a></li>
+                    <li><a href='/classes/fourth'>4th YEAR</a></li>
+                    <li><a href='/classes/fifth'>5th YEAR</a></li>
+                    <li><a href='/classes/sixth'>6th YEAR</a></li>
+                </ul>
+            </li>
+            <li><a href='#horarios'>School Timetable</a></li>
+            <li><a href='#calendar'>Calendar</a></li>
+            <li><a href='#diccionario'>Online Dictionary</a></li>
+            <li><a href='#contacto'>Contact</a></li>
+        </ul>
+    </nav>
+    <main class="cuerpo">
+        <section class="welcome-message" id="welcome-message">
+            <video class="wheat-video" src="/video/wheat-video.mp4" autoplay muted loop></video>
+            <div class="text-overlay">
+                <svg>
+                    <text x="50%" y="50%" dy=".35em" text-anchor="middle">
+                        WELCOME
+                    </text>
+                </svg>
+                <p class="subtext">GENERAL ENGLISH & ESP: ENGLISH FOR AGRICULTURE</p>
+                <p class="profesor">Classes taught by teacher Martín R. Leiva, Bachelor´s degree in English</p>
+            </div>
+        </section>
+        <section class="cursos" id="cursos">
+            <h1>School Years</h1>
+            <div class="carousel">
+                <div class="carousel-slide">
+                    <div class="carousel-item">
+                        <img src="/img/1ro.png" alt="Curso 1">
+                        <div class="carousel-caption">
+                            <h3>1st YEAR</h3>
+                            <a href="/classes/first" class="btn">ENTER</a>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="/img/2do.png" alt="Curso 2">
+                        <div class="carousel-caption">
+                            <h3>2nd YEAR</h3>
+                            <a href="/classes/second" class="btn">ENTER</a>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="/img/3ro.png" alt="Curso 3">
+                        <div class="carousel-caption">
+                            <h3>3rd YEAR</h3>
+                            <a href="/classes/third" class="btn">ENTER</a>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="/img/4to.png" alt="Curso 4">
+                        <div class="carousel-caption">
+                            <h3>4th YEAR</h3>
+                            <a href="/classes/fourth" class="btn">ENTER</a>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="/img/5to.png" alt="Curso 5">
+                        <div class="carousel-caption">
+                            <h3>5th YEAR</h3>
+                            <a href="/classes/fifth" class="btn">ENTER</a>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="/img/6to.png" alt="Curso 6">
+                        <div class="carousel-caption">
+                            <h3>6th YEAR</h3>
+                            <a href="/classes/sixth" class="btn">ENTER</a>
+                        </div>
+                    </div>
+                </div>
+                <button class="prev" onclick="moveSlide(-1)">&#10094;</button>
+                <button class="next" onclick="moveSlide(1)">&#10095;</button>
+            </div>
+            <script src="/js/carousel.js"></script>
+
+        </section>
+        <section class="horarios" id="horarios">
+            <h1 class="timetable">"School Timetable of English in E.E.T.P. N° 487 'C.A.S.'"</h1>
+            <table>
+                <tbody>
+                    <tr>
+                        <td class="hora">Time</td>
+                        <td class="days">Monday</td>
+                        <td class="days">Tuesday</td>
+                        <td class="days">Wednesday</td>
+                        <td class="days">Thursday</td>
+                        <td class="days">Friday</td>
+                    </tr>
+                    <tr>
+                        <td class="hora">07:30 - 8:10</td>
+                        <td class="clase">6th FORM</td>
+                        <td class="vacio"></td>
+                        <td class="clase">3rd FORM</td>
+                        <td class="vacio"></td>
+                        <td class="clase">2nd FORM</td>
+                    </tr>
+                    <tr>
+                        <td class="hora">08:10 - 8:50</td>
+                        <td class="clase">6th FORM</td>
+                        <td class="vacio"></td>
+                        <td class="clase">3rd FORM</td>
+                        <td class="vacio"></td>
+                        <td class="clase">2nd FORM</td>
+                    </tr>
+                    <tr>
+                        <td class="hora">09:00 - 9:40</td>
+                        <td class="clase">5th FORM</td>
+                        <td class="vacio"></td>
+                        <td class="clase">3rd FORM</td>
+                        <td class="vacio"></td>
+                        <td class="clase">2nd FORM</td>
+                    </tr>
+                    <tr>
+                        <td class="hora">09:40 - 10:20</td>
+                        <td class="clase">5th FORM</td>
+                        <td class="vacio"></td>
+                        <td class="clase">1st FORM</td>
+                        <td class="vacio"></td>
+                        <td class="clase">4th FORM</td>
+                    </tr>
+                    <tr>
+                        <td class="hora">10:30 - 11:10</td>
+                        <td class="vacio"></td>
+                        <td class="vacio"></td>
+                        <td class="clase">1st FORM</td>
+                        <td class="vacio"></td>
+                        <td class="clase">4th FORM</td>
+                    </tr>
+                    <tr>
+                        <td class="hora">11:10 - 11:50</td>
+                        <td class="vacio"></td>
+                        <td class="vacio"></td>
+                        <td class="clase">1st FORM</td>
+                        <td class="vacio"></td>
+                        <td class="clase">4th FORM</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        <section class="calendar" id="calendar">
+            <h1>Calendar of Events</h1>
+            <iframe src="https://calendar.google.com/calendar/embed?height=600&wkst=2&ctz=America%2FArgentina%2FBuenos_Aires&bgcolor=%23F09300&showTitle=0&showPrint=0&showCalendars=0&hl=en_GB&src=ZW5nbGlzaGN1bHRpdmF0ZWh1YkBnbWFpbC5jb20&src=ZTE0OWUzY2MzZWEyMDhiNjYxNDQyMTY2ZjdhMjc4MmE3MDA5Y2NmN2RiZDA0NWRmMzI0MmJkYTNjOGQyNGVmZUBncm91cC5jYWxlbmRhci5nb29nbGUuY29t&color=%23039BE5&color=%234285F4" style="border-width:0" width="100%" height="600" frameborder="0" scrolling="no"></iframe>
+        </section>
+        <section class="diccionario" id="diccionario">
+            <img class="translator" src="/img/spanishdict-translator-1.jpg" alt="SpanishDict">
+            <h2>English Translator</h2>
+            <p>Translate English to Spanish using the Ingles.com Translator:</p>
+            <div class="spanishdict-enlace">
+                <a class="boton-enlace" href="https://www.ingles.com/traductor" target="_blank">Go to SpanishDict</a>
+            </div>
+        </section>
+        <section class="contacto" id="contacto">
+            <form class="contact-form" id="contact-form">
+                <h2>Contact me</h2>
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+                
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+                
+                <label for="subject">Subject:</label>
+                <input type="text" id="subject" name="subject" required>
+                
+                <label for="message">Message:</label>
+                <textarea id="message" name="message" rows="5" required></textarea>
+                
+                <button type="submit">Enviar</button>
+            </form>
+            <!-- SweetAlert JS -->
+            <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+            <script src="/js/contactme.js"></script>
+        </section>
+    </main>
+    <footer>
+        <p>Copyright © 2024 - Leiva Martín R.</p>
+        <p><span class="icon-envelope"></span>englishcultivatehub@gmail.com &emsp;|| &emsp;<span class="icon-whatsapp"></span>(3482)-666150</p> 
+        <div class="redes">
+            <img class="logo-escuela" src="/img/logo_escuela.jpeg" alt="logo_escuela">
+            <img class="escuela" src="/img/agrotecnica.jpg" alt="Escuela">
+            <div class="iconos">
+                <a href="https://www.facebook.com/groups/174789172685781" target="_blank" class="icon-facebook2"></a>
+                <a href="https://www.instagram.com/agro487cas/?hl=es-la" target="_blank" class="icon-instagram"></a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
