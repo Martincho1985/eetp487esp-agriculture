@@ -37,7 +37,7 @@
         </div>
     </header>
     
-    <main class="examenes">
+    <main class="exam-results">
         <section class="tabla-resultados">
             <h1>Exam Results</h1>
 
@@ -70,8 +70,8 @@
                 <% questions.forEach((question, index) => { %>
                     <div class="feedback">
                         <p><strong>Question <%= index + 1 %>:</strong> <%= question.question %></p>
-                        <p>Your Answer: <%= question.userAnswer %></p>
-                        <p>Correct Answer: <%= question.correctAnswer %></p>
+                        <p><strong>Your Answer:</strong> <%= question.userAnswer %></p>
+                        <p><strong>Correct Answer:</strong> <%= question.correctAnswer %></p>
 
                         <% if (question.isCorrect) { %>
                             <p class="correcto">You answered correctly! ✅</p>

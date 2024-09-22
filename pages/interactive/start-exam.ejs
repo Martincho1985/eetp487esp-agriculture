@@ -47,7 +47,7 @@
             <li><a href='/classes/sixth'>6th YEAR</a></li>
         </ul>
     </nav>
-    <main class="examenes">
+    <main class="exam-start">
         <section class="examen-interactivo">
             <h1>Interactive Exams</h1>
             <h2>Year <%= course %> - Unit <%= unit %></h1>
@@ -55,7 +55,7 @@
             <form id="exam-form" action="/submit-exam" method="POST">
                 <% questions.forEach((question, index) => { %>
                     <div class="question">
-                        <p><%= index + 1 %>. <%= question.question %></p>
+                        <p><strong><%= index + 1 %>. <%= question.question %></strong></p>
                         <ul>
                             <% question.options.forEach((option, optionIndex) => { %>
                                 <li>
