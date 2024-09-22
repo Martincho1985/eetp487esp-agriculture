@@ -31,11 +31,10 @@
                 <a href="/#">Perfil</a>
                 <% if (user.role === 'teacher') { %>
                     <a href="/question-bank">Create Exam</a>
-                    <a href="/">Student registration</a>
-                    <a href="/">Students´ grades</a>
+                    <a href="/">Registration List</a>
+                    <a href="/">Grades</a>
                 <% } %>
                 <a href="/api/auth/logout">Log Out</a>
-                
             </div>
         </div>
     </header>
@@ -56,6 +55,7 @@
             <li><a href='#calendar'>Calendar</a></li>
             <li><a href='#diccionario'>Online Dictionary</a></li>
             <li><a href='#contacto'>Contact</a></li>
+            <li><a href='/select-exam'>Interactive Tests</a></li>
         </ul>
     </nav>
     <main class="cuerpo">

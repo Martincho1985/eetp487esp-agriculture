@@ -30,6 +30,10 @@
                 <p class="userName"><%= user.username %></p>
                 <p class="userRole"><%= user.role %></p>
                 <a href="/perfil">Perfil</a>
+                <% if (user.role === 'teacher') { %>
+                    <a href="/">Registration List</a>
+                    <a href="/">Grades</a>
+                <% } %>
                 <a href="/api/auth/logout">Log Out</a>
             </div>
         </div>

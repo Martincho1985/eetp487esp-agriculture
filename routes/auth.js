@@ -7,7 +7,7 @@ const transporter = require('../utils/mailer');
 
 const router = express.Router();
 
-// Ruta de registro
+// RUTA DE REGISTRO-------------------------------------------------------------------------------------------
 router.post('/register', async (req, res) => {
   const { username, email, password } = req.body;
   try {
@@ -24,7 +24,7 @@ router.post('/register', async (req, res) => {
   }
 });
 
-// Ruta de inicio de sesión
+// RUTA DE INICIO DE SESSION ---------------------------------------------------------------------------------
 router.post('/login', async (req, res) => {
   const { username, password } = req.body;
   console.log('Datos de inicio de sesión recibidos:', { username });
@@ -61,7 +61,7 @@ router.post('/login', async (req, res) => {
   }
 });
 
-// Ruta de logout
+// RUTA DE LOGOUT --------------------------------------------------------------------------------------------
 router.get('/logout', (req, res) => {
   req.session.destroy(err => {
     if (err) {
@@ -72,7 +72,7 @@ router.get('/logout', (req, res) => {
   });
 });
 
-// Ruta para solicitar un restablecimiento de contraseña
+// RUTA PARA SOLICITAR RESTABLECIMIENTO DE CONTRASEÑA ---------------------------------------------------------
 router.post('/forgot-password', async (req, res) => {
   const { email } = req.body;
   try {
@@ -101,7 +101,7 @@ router.post('/forgot-password', async (req, res) => {
   }
 });
 
-// Ruta para procesar el restablecimiento de contraseña
+// RUTA PARA PROCESAR EL RESTABLECIEMINTO DE CONTRASEÑA --------------------------------------------------------
 router.post('/reset-password', async (req, res) => {
   const { token, newPassword } = req.body;
   try {

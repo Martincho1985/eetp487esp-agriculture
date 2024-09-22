@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta author="Leiva Martin">
-    <title>Interactive Exams</title>
+    <title>Exam Results</title>
     <link rel="icon" type="segador.png" href="/img/tractores.png">
     <link rel="stylesheet" href="/css/exams.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -19,7 +19,7 @@
             <a href="/dashboard">
                 <img id="logo" src="/img/logo.png" alt="logo">
             </a>
-            <img id="nombre_pagina" src="/img/nombre_pagina.png" alt="">
+            <img id="nombre_pagina" src="/img/nombre_pagina.png" alt="Nombre Página">
         </div>
         <div class="user-menu">
             <img id="user-avatar" src="/img/pngwing.png" alt="User Avatar">
@@ -36,44 +36,56 @@
             </div>
         </div>
     </header>
-    <nav id='menu'>
-        <input type='checkbox' id='responsive-menu'><label></label>
-        <ul>
-            <li><a href='/classes/first'>1st YEAR</a></li>
-            <li><a href='/classes/second'>2nd YEAR</a></li>
-            <li><a href='/classes/third'>3rd YEAR</a></li>
-            <li><a href='/classes/fourth'>4th YEAR</a></li>
-            <li><a href='/classes/fifth'>5th YEAR</a></li>
-            <li><a href='/classes/sixth'>6th YEAR</a></li>
-        </ul>
-    </nav>
+    
     <main class="examenes">
-        <section class="examen-interactivo">
-            <h1>Interactive Exams</h1>
-            <h2>Year <%= course %> - Unit <%= unit %></h1>
-            <div id="timer"></div>
-            <form id="exam-form" action="/submit-exam" method="POST">
+        <section class="tabla-resultados">
+            <h1>Exam Results</h1>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Username</th>
+                        <th>Course</th>
+                        <th>Unit</th>
+                        <th>Attempts</th>
+                        <th>Highest Grade</th>
+                        <th>Last Grade</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><%= user.username %></td>
+                        <td><%= course %></td>
+                        <td><%= unit %></td>
+                        <td><%= attempts %></td>
+                        <td><%= highestGrade %></td>
+                        <td><%= lastGrade %></td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section class="retroalimentacion">
+            <h2>Feedback on Your Answers</h2>
                 <% questions.forEach((question, index) => { %>
-                    <div class="question">
-                        <p><%= index + 1 %>. <%= question.question %></p>
-                        <ul>
-                            <% question.options.forEach((option, optionIndex) => { %>
-                                <li>
-                                    <input type="radio" name="question_<%= index %>" value="<%= optionIndex %>"> <%= option %>
-                                </li>
-                            <% }) %>
-                        </ul>
+                    <div class="feedback">
+                        <p><strong>Question <%= index + 1 %>:</strong> <%= question.question %></p>
+                        <p>Your Answer: <%= question.userAnswer %></p>
+                        <p>Correct Answer: <%= question.correctAnswer %></p>
+
+                        <% if (question.isCorrect) { %>
+                            <p class="correcto">You answered correctly! ✅</p>
+                        <% } else { %>
+                            <p class="incorrecto">Your answer was incorrect. ❌</p>
+                        <% } %>
+
+                        <p><strong>Feedback:</strong> <%= question.feedback %></p>
                     </div>
                 <% }) %>
-                <input type="hidden" name="course" value="<%= course %>">
-                <input type="hidden" name="unit" value="<%= unit %>">
-                <input type="hidden" name="attempts" value="<%= attempts %>">
-                <input type="hidden" id="timeRemaining" name="timeRemaining" value="600">
-                <button type="submit">Enviar Examen</button>
-            </form>
-            <script src="/js/timer.js"> updateTimer();</script>
+                <button type="button" onclick="window.location.href='/select-exam'">Finish Revision</button>
         </section>
     </main>
+
     <footer>
         <p>Copyright © 2024 - Leiva Martín R.</p>
         <p><span class="icon-envelope"></span>englishcultivatehub@gmail.com &emsp;|| &emsp;<span class="icon-whatsapp"></span>(3482)-666150</p> 

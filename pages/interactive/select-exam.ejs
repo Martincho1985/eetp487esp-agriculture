@@ -24,7 +24,14 @@
         <div class="user-menu">
             <img id="user-avatar" src="/img/pngwing.png" alt="User Avatar">
             <div class="dropdown-content">
+                <p class="userName"><%= user.username %></p>
+                <p class="userRole"><%= user.role %></p>
                 <a href="/perfil">Perfil</a>
+                <% if (user.role === 'teacher') { %>
+                    <a href="/question-bank">Create Exam</a>
+                    <a href="/">Registration List</a>
+                    <a href="/">Grades</a>
+                <% } %>
                 <a href="/api/auth/logout">Log Out</a>
             </div>
         </div>
@@ -43,23 +50,23 @@
     <main class="examenes">
         <section class="examen-curso">
             <h1>Interactive Exams</h1>
-            <h2>Choose</h2>
+            <h2>Select your Exam</h2>
             <form action="/start-exam" method="POST">
-                <label for="course">Curso:</label>
+                <label for="course">Year:</label>
                 <select name="course" id="course">
                     <% courses.forEach(function(course) { %>
                         <option value="<%= course.id %>"><%= course.name %></option>
                     <% }) %>
                 </select>
             
-                <label for="unit">Unidad:</label>
+                <label for="unit">Unit:</label>
                 <select name="unit" id="unit">
                     <% units.forEach(function(unit) { %>
                         <option value="<%= unit.id %>"><%= unit.name %></option>
                     <% }) %>
                 </select>
             
-                <button type="submit">Iniciar Examen</button>
+                <button type="submit">Start Exam</button>
             </form>
               
            

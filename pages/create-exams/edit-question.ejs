@@ -29,6 +29,10 @@
                 <p class="userName"><%= user.username %></p>
                 <p class="userRole"><%= user.role %></p>
                 <a href="/perfil">Perfil</a>
+                <% if (user.role === 'teacher') { %>
+                    <a href="/">Registration List</a>
+                    <a href="/">Grades</a>
+                <% } %>
                 <a href="/api/auth/logout">Log Out</a>
             </div>
         </div>
@@ -46,8 +50,8 @@
                 <label>Question:</label>
                 <input type="text" name="question" value="<%= question.question %>">
                 
-                <label>Options (separated by commas):</label>
-                <input type="text" name="options" value="<%= question.options.join(', ') %>">
+                <label>Options (separated by semicolon):</label>
+                <input type="text" name="options" value="<%= question.options.join('; ') %>">
                 
                 <label>Correct Answer:</label>
                 <input type="text" name="correctAnswer" value="<%= question.correctAnswer %>">

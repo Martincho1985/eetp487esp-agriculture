@@ -171,7 +171,7 @@ body{
     width: 80%; /* Ajusta según sea necesario */
     max-width: 1000px; /* Ajusta según sea necesario */
     height: auto;
-    background-color: rgb(247, 247, 169,0.5);
+    background-color: rgb(247, 247, 169,0.8);
     text-align: center;
     display: inline-block;
 }
@@ -191,80 +191,151 @@ body{
     padding: 10px 0;
     border-bottom: 10px solid orange;  
 }
-.examenes-interactivos{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    gap: 40px; /* Agrega espacio entre las cajas */
-    padding: 30px 30px 60px 30px; /* Añade espacio interno alrededor del contenedor */
-}
-.exam {
-    position: relative;
-    width: 250px;
-    height: 250px;
-    border-radius: 10px;
-    overflow: hidden;
-    transition: transform 0.3s ease;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    box-shadow: 0 6px 10px rgba(0, 0, 0);
-}
-.exam::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-size: cover;
-    background-position: center;
-    filter: brightness(0.7); /* Oscurece ligeramente la imagen para que el texto resalte más */
-    z-index: 1;
-}
-.exam::after {
-    content: "";
-    position: absolute;
-    top: 50%; /* Posiciona la capa al centro verticalmente */
-    left: 50%;
-    transform: translate(-50%, -50%); /* Centra la capa respecto al texto */
-    width: 100%;
-    height: 20%; /* Ajusta la altura de la capa para cubrir el texto */
-    background-color: rgba(255, 255, 255, 0.4); /* Fondo blanco semitransparente */
-    z-index: 2;
-}
-.exam a {
-    position: relative;
-    z-index: 3;
-    color: rgb(4, 62, 4);
-    text-shadow: 2px 2px 4px yellow; 
+/* Estilos para los select de course y unit */
+.examen-curso label {
+    display: block;
     font-family: 'Kanit', sans-serif;
+    color: rgb(4, 62, 4);
     font-size: 200%;
     font-weight: bolder;
-    text-decoration: none;
+    margin-top: 15px;
+    margin-bottom: 5px;
+    text-align: center;
 }
-.exam:hover {
-    transform: scale(1.1);
+.examen-curso select {
+    width: 60%;
+    height: 40px;
+    padding: 5px;
+    font-size: 120%;
+    font-weight: bolder;
+    border-radius: 5px;
+    border: 2px solid rgb(4, 62, 4);
+    margin-bottom: 20px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: white;
+    text-align: center;
+    color: rgb(4, 62, 4);
 }
-.exam.year-1::before {
-    background-image: url('/img/1ro.png');
+.examen-curso button,
+.examen-interactivo button,
+.retroalimentacion button {
+    width: 40%;
+    height: 50px;
+    background-color: rgb(255, 255, 0);
+    color: rgb(4, 62, 4);
+    border: 2px solid rgb(4, 62, 4);
+    font-family: 'Kanit', sans-serif;
+    font-size: 150%;
+    border-radius: 5px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    cursor: pointer;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    transition: background-color 0.3s ease;
 }
-.exam.year-2::before {
-    background-image: url('/img/2do.png');
+.examen-curso button:hover,
+.examen-interactivo button:hover,
+.retroalimentacion button:hover {
+    background-color: rgb(4, 62, 4);
+    color: white;
 }
-.exam.year-3::before {
-    background-image: url('/img/3ro.png');
+/* Centrado del formulario */
+.examen-curso form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
-.exam.year-4::before {
-    background-image: url('/img/4to.png');
+/*----------ESTILOS AL START EXAM------------*/
+.examen-interactivo{
+    width: 80%; /* Ajusta según sea necesario */
+    max-width: 1000px; /* Ajusta según sea necesario */
+    background-color: rgb(247, 247, 169,0.8);
+    font-family: 'Kanit', sans-serif;
 }
-.exam.year-5::before {
-    background-image: url('/img/5to.png');
+.examen-interactivo h1{
+    color: rgb(4, 62, 4);
+    font-size: 400%;
+    margin-top: 0;
+    margin-bottom: 0;
+    text-align: center;
 }
-.exam.year-6::before {
-    background-image: url('/img/6to.png');
+.examen-interactivo h2,
+.retroalimentacion h2{
+    color: yellow;
+    font-size: 200%;
+    background-color: rgb(4, 62, 4, 0.7);
+    margin-top: 0;
+    padding: 10px 0;
+    border-bottom: 10px solid orange;
+    text-align: center;  
 }
+#timer{
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 50px;
+    font-size: 220%; /* Aumenta el tamaño de la fuente */
+    font-weight: bold;
+    color: #fff;
+    background-color: #333; /* Fondo oscuro estilo tablero */
+    padding: 20px 40px; /* Espaciado interno */
+    border-radius: 10px; /* Bordes redondeados */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5); /* Sombra para resaltar */
+    text-align: center;
+    font-family: 'Courier New', Courier, monospace; /* Estilo de fuente de tablero */
+    letter-spacing: 2px;
+}
+.examen-interactivo form ul{
+    list-style-type: none; /* Elimina los puntos */
+}
+.examen-interactivo form,
+.feedback{
+    width: 80%; /* Define el ancho del form */
+    margin-left: auto;
+    margin-right: auto;
+}
+/*----------ESTILOS AL RESULT EXAM------------*/
+.tabla-resultados,
+.retroalimentacion{
+    width: 80%; /* Ajusta según sea necesario */
+    max-width: 1000px; /* Ajusta según sea necesario */
+    background-color: rgb(247, 247, 169,0.8);
+    font-family: 'Kanit', sans-serif;
+}
+.tabla-resultados h1{
+    color: rgb(4, 62, 4);
+    font-size: 200%;
+    margin-top:30px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+/* Estilo para la tabla de resultados */
+.tabla-resultados table {
+    width: 100%;
+    max-width: 800px; /* Ajusta el ancho máximo de la tabla */
+    margin: 20px auto; /* Centra la tabla horizontalmente */
+    border-collapse: collapse; /* Elimina los espacios entre celdas */
+    font-size: 18px; /* Tamaño de fuente */
+    background-color: white; /* Fondo blanco para las celdas */
+    text-align: center; /* Centra el contenido de las celdas */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Añade sombra alrededor */
+}
+.tabla-resultados th, .tabla-resultados td {
+    padding: 12px 15px; /* Añade espaciado dentro de las celdas */
+    border: 1px solid rgb(4, 62, 4); /* Añade un borde */
+}
+.tabla-resultados th {
+    background-color: rgb(4, 62, 4); /* Fondo para los encabezados */
+    color: white; /* Texto blanco para los encabezados */
+    font-weight: bold;
+}
+
+
+
 
 /* FOOTER */
 footer {
