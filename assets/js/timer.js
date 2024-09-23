@@ -12,8 +12,24 @@ function updateTime() {
 
   if (timeLeft <= 0) {
     clearInterval(timer);
-    alert("¡Se acabó el tiempo! El examen se enviará automáticamente.");
-    document.getElementById('exam-form').submit(); // Envía el examen automáticamente
+    // Mostrar alerta de SweetAlert2 cuando el tiempo se acaba
+    Swal.fire({
+      title: 'Time is up!',
+      text: 'The exam will be submitted automatically.',
+      icon: 'warning',
+      showConfirmButton: false,
+      timer: 5000, // Duración de la alerta (5 segundos)
+      customClass: {
+        title: 'custom-swal-title',
+        htmlContainer: 'custom-swal-text',
+        confirmButton: 'custom-swal-button',
+        cancelButton: 'custom-swal-button'
+      },
+      willClose: () => {
+          // Después de cerrar la alerta, enviar el examen
+          document.getElementById('exam-form').submit();
+      }
+  });
   } else {
     timeLeft--;
   }

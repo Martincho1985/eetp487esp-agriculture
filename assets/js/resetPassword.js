@@ -12,7 +12,13 @@ document.getElementById('reset-password-form').addEventListener('submit', async 
         text: 'Passwords do not match',
         background: '#fff',
         confirmButtonColor: '#d33',
-        confirmButtonText: 'OK'
+        confirmButtonText: 'OK',
+        customClass: {
+          title: 'custom-swal-title',
+          htmlContainer: 'custom-swal-text',
+          confirmButton: 'custom-swal-button',
+          cancelButton: 'custom-swal-button'
+        }
       });
       return;
     }
@@ -26,9 +32,16 @@ document.getElementById('reset-password-form').addEventListener('submit', async 
       allowEscapeKey: false,
       allowEnterKey: false,
       showConfirmButton: false,
+      customClass: {
+        title: 'custom-swal-title',
+        htmlContainer: 'custom-swal-text',
+        confirmButton: 'custom-swal-button',
+        cancelButton: 'custom-swal-button'
+      },
       onBeforeOpen: () => {
         Swal.showLoading();
       }
+      
     });
 
     try {
@@ -50,7 +63,13 @@ document.getElementById('reset-password-form').addEventListener('submit', async 
           text: 'Your password has been successfully reset',
           background: '#fff',
           confirmButtonColor: '#3085d6',
-          confirmButtonText: 'OK'
+          confirmButtonText: 'OK',
+          customClass: {
+            title: 'custom-swal-title',
+            htmlContainer: 'custom-swal-text',
+            confirmButton: 'custom-swal-button',
+            cancelButton: 'custom-swal-button'
+          }
         }).then(() => {
           window.location.href = '/';
         });
@@ -63,7 +82,13 @@ document.getElementById('reset-password-form').addEventListener('submit', async 
           text: error || 'An error occurred while resetting the password',
           background: '#fff',
           confirmButtonColor: '#d33',
-          confirmButtonText: 'OK'
+          confirmButtonText: 'OK',
+          customClass: {
+            title: 'custom-swal-title',
+            htmlContainer: 'custom-swal-text',
+            confirmButton: 'custom-swal-button',
+            cancelButton: 'custom-swal-button'
+          }
         });
       }
     } catch (error) {
@@ -75,7 +100,13 @@ document.getElementById('reset-password-form').addEventListener('submit', async 
         text: 'Error connecting to the server',
         background: '#fff',
         confirmButtonColor: '#d33',
-        confirmButtonText: 'OK'
+        confirmButtonText: 'OK',
+        customClass: {
+          title: 'custom-swal-title',
+          htmlContainer: 'custom-swal-text',
+          confirmButton: 'custom-swal-button',
+          cancelButton: 'custom-swal-button'
+        }
       });
     }
   });

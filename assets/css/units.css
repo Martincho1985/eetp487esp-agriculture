@@ -11,6 +11,20 @@
     background: linear-gradient(180deg, rgba(11,24,1,1) 0%, rgba(30,64,2,1) 50%, rgba(67,107,4,1) 100%);
 }
 
+/*ESTILOS A LOS SWEET ALERTS*/
+.custom-swal-title {
+    font-family: 'Kanit', sans-serif;
+    font-weight: 600;
+}
+.custom-swal-text {
+    font-family: 'Kanit', sans-serif;
+    font-weight: 400;
+}
+.custom-swal-button {
+    font-family: 'Kanit', sans-serif;
+    font-weight: 400;
+}
+
 /*ESTILOS AL CUEPO PRINCIPAL DE LA PAGINA*/
 .cuerpo_unidad{
     width: 1100px;

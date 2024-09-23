@@ -27,7 +27,13 @@ document.getElementById('login-form').addEventListener('submit', async (event) =
         text: 'Incorrect username or password',
         background: '#fff',
         confirmButtonColor: '#d33',
-        confirmButtonText: 'OK'
+        confirmButtonText: 'OK',
+        customClass: {
+          title: 'custom-swal-title',
+          htmlContainer: 'custom-swal-text',
+          confirmButton: 'custom-swal-button',
+          cancelButton: 'custom-swal-button'
+        }
       });
     }
   } catch (error) {
@@ -38,7 +44,13 @@ document.getElementById('login-form').addEventListener('submit', async (event) =
       text: 'Error al conectar con el servidor',
       background: '#fff',
       confirmButtonColor: '#d33',
-      confirmButtonText: 'OK'
+      confirmButtonText: 'OK',
+      customClass: {
+        title: 'custom-swal-title',
+        htmlContainer: 'custom-swal-text',
+        confirmButton: 'custom-swal-button',
+        cancelButton: 'custom-swal-button'
+      }
     });
   }
 });

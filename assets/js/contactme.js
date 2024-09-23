@@ -7,7 +7,13 @@ document.getElementById('contact-form').addEventListener('submit', async (e) => 
       text: 'Please wait while we send your message.',
       icon: 'info',
       showConfirmButton: false,
-      allowOutsideClick: false
+      allowOutsideClick: false,
+      customClass: {
+        title: 'custom-swal-title',
+        htmlContainer: 'custom-swal-text',
+        confirmButton: 'custom-swal-button',
+        cancelButton: 'custom-swal-button'
+      }
   });
 
   const name = document.getElementById('name').value;
@@ -34,7 +40,13 @@ document.getElementById('contact-form').addEventListener('submit', async (e) => 
               title: 'Success!',
               text: 'Email sent successfully',
               icon: 'success',
-              confirmButtonText: 'OK'
+              confirmButtonText: 'OK',
+              customClass: {
+                title: 'custom-swal-title',
+                htmlContainer: 'custom-swal-text',
+                confirmButton: 'custom-swal-button',
+                cancelButton: 'custom-swal-button'
+              }
           });
           document.getElementById('contact-form').reset();
       } else {
@@ -42,7 +54,13 @@ document.getElementById('contact-form').addEventListener('submit', async (e) => 
               title: 'Error!',
               text: 'Error sending email: ' + data.error,
               icon: 'error',
-              confirmButtonText: 'Try Again'
+              confirmButtonText: 'Try Again',
+              customClass: {
+                title: 'custom-swal-title',
+                htmlContainer: 'custom-swal-text',
+                confirmButton: 'custom-swal-button',
+                cancelButton: 'custom-swal-button'
+              }
           });
       }
   } catch (error) {
@@ -53,7 +71,13 @@ document.getElementById('contact-form').addEventListener('submit', async (e) => 
           title: 'Error!',
           text: 'Error sending email: ' + error.message,
           icon: 'error',
-          confirmButtonText: 'Try Again'
+          confirmButtonText: 'Try Again',
+          customClass: {
+            title: 'custom-swal-title',
+            htmlContainer: 'custom-swal-text',
+            confirmButton: 'custom-swal-button',
+            cancelButton: 'custom-swal-button'
+          }
       });
   }
 });

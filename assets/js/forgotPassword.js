@@ -14,6 +14,12 @@ document.getElementById('forgot-password-form').addEventListener('submit', async
         showConfirmButton: false,
         willOpen: () => {
         Swal.showLoading();
+        },
+        customClass: {
+          title: 'custom-swal-title',
+          htmlContainer: 'custom-swal-text',
+          confirmButton: 'custom-swal-button',
+          cancelButton: 'custom-swal-button'
         }
     });
   
@@ -37,7 +43,13 @@ document.getElementById('forgot-password-form').addEventListener('submit', async
           icon: 'success',
           title: 'Success',
           text: 'Password reset email sent.',
-          confirmButtonText: 'OK'
+          confirmButtonText: 'OK',
+          customClass: {
+            title: 'custom-swal-title',
+            htmlContainer: 'custom-swal-text',
+            confirmButton: 'custom-swal-button',
+            cancelButton: 'custom-swal-button'
+          }
         }).then(() => {
           // Redirigir al login después de cerrar el SweetAlert
           window.location.href = '/'; // Ajusta la URL según sea necesario
@@ -47,7 +59,13 @@ document.getElementById('forgot-password-form').addEventListener('submit', async
         Swal.fire({
           icon: 'error',
           title: 'Error',
-          text: 'No user found with that email address.'
+          text: 'No user found with that email address.',
+          customClass: {
+            title: 'custom-swal-title',
+            htmlContainer: 'custom-swal-text',
+            confirmButton: 'custom-swal-button',
+            cancelButton: 'custom-swal-button'
+          }
         });
       }
     } catch (error) {
@@ -59,7 +77,13 @@ document.getElementById('forgot-password-form').addEventListener('submit', async
       Swal.fire({
         icon: 'error',
         title: 'Error',
-        text: 'Failed to send the request. Please try again later.'
+        text: 'Failed to send the request. Please try again later.',
+        customClass: {
+          title: 'custom-swal-title',
+          htmlContainer: 'custom-swal-text',
+          confirmButton: 'custom-swal-button',
+          cancelButton: 'custom-swal-button'
+        }
       });
     }
 });

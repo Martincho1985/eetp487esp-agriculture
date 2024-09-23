@@ -19,7 +19,13 @@ document.getElementById('register-form').addEventListener('submit', async (event
       text: 'Passwords do not match.',
       background: '#fff',
       confirmButtonColor: '#d33',
-      confirmButtonText: 'OK'
+      confirmButtonText: 'OK',
+      customClass: {
+        title: 'custom-swal-title',
+        htmlContainer: 'custom-swal-text',
+        confirmButton: 'custom-swal-button',
+        cancelButton: 'custom-swal-button'
+      }
     });
     return;
   }
@@ -32,7 +38,13 @@ document.getElementById('register-form').addEventListener('submit', async (event
       text: 'Invalid access code for teacher registration.',
       background: '#fff',
       confirmButtonColor: '#d33',
-      confirmButtonText: 'OK'
+      confirmButtonText: 'OK',
+      customClass: {
+        title: 'custom-swal-title',
+        htmlContainer: 'custom-swal-text',
+        confirmButton: 'custom-swal-button',
+        cancelButton: 'custom-swal-button'
+      }
     });
     return;
   }
@@ -54,7 +66,13 @@ document.getElementById('register-form').addEventListener('submit', async (event
         text: 'Your account has been successfully created.',
         background: '#fff',
         confirmButtonColor: '#3085d6',
-        confirmButtonText: 'OK'
+        confirmButtonText: 'OK',
+        customClass: {
+          title: 'custom-swal-title',
+          htmlContainer: 'custom-swal-text',
+          confirmButton: 'custom-swal-button',
+          cancelButton: 'custom-swal-button'
+        }
       }).then(() => {
         window.location.href = '/';
       });
@@ -67,7 +85,13 @@ document.getElementById('register-form').addEventListener('submit', async (event
         text: 'User already registered with that email or username.',
         background: '#fff',
         confirmButtonColor: '#d33',
-        confirmButtonText: 'OK'
+        confirmButtonText: 'OK',
+        customClass: {
+          title: 'custom-swal-title',
+          htmlContainer: 'custom-swal-text',
+          confirmButton: 'custom-swal-button',
+          cancelButton: 'custom-swal-button'
+        }
       });
     }
   } catch (error) {
@@ -78,7 +102,13 @@ document.getElementById('register-form').addEventListener('submit', async (event
       text: 'Error al conectar con el servidor',
       background: '#fff',
       confirmButtonColor: '#d33',
-      confirmButtonText: 'OK'
+      confirmButtonText: 'OK',
+      customClass: {
+        title: 'custom-swal-title',
+        htmlContainer: 'custom-swal-text',
+        confirmButton: 'custom-swal-button',
+        cancelButton: 'custom-swal-button'
+      }
     });
   }
 });

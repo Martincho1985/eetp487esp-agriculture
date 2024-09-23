@@ -8,7 +8,13 @@
          showCancelButton: true,
          confirmButtonText: 'Add More Questions',
          cancelButtonText: 'Go to Question Bank',
-         reverseButtons: true
+         reverseButtons: true,
+         customClass: {
+            title: 'custom-swal-title',
+            htmlContainer: 'custom-swal-text',
+            confirmButton: 'custom-swal-button',
+            cancelButton: 'custom-swal-button'
+        }
      }).then((result) => {
          if (result.isConfirmed) {
              // Si el usuario elige "Agregar más preguntas"

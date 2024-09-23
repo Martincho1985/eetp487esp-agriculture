@@ -3,6 +3,20 @@ body {
     padding: 0;
 }
 
+/*ESTILOS A LOS SWEET ALERTS*/
+.custom-swal-title {
+    font-family: 'Kanit', sans-serif;
+    font-weight: 600;
+}
+.custom-swal-text {
+    font-family: 'Kanit', sans-serif;
+    font-weight: 400;
+}
+.custom-swal-button {
+    font-family: 'Kanit', sans-serif;
+    font-weight: 400;
+}
+
 /*ESTILOS AL HEADER*/
 .cabecera{
     width: 100%;

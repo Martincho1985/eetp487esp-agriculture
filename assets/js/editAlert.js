@@ -20,6 +20,12 @@ document.getElementById('updateQuestionBtn').addEventListener('click', function 
                 title: 'Update Successful',
                 text: 'The question has been updated successfully.',
                 confirmButtonText: 'OK',
+                customClass: {
+                    title: 'custom-swal-title',
+                    htmlContainer: 'custom-swal-text',
+                    confirmButton: 'custom-swal-button',
+                    cancelButton: 'custom-swal-button'
+                }
             }).then(() => {
                 // Redirigir al usuario a la página de question-bank
                 window.location.href = '/question-bank';
@@ -30,6 +36,12 @@ document.getElementById('updateQuestionBtn').addEventListener('click', function 
                 icon: 'error',
                 title: 'Error',
                 text: 'There was an issue updating the question.',
+                customClass: {
+                    title: 'custom-swal-title',
+                    htmlContainer: 'custom-swal-text',
+                    confirmButton: 'custom-swal-button',
+                    cancelButton: 'custom-swal-button'
+                }
             });
         }
     })
@@ -39,6 +51,12 @@ document.getElementById('updateQuestionBtn').addEventListener('click', function 
             icon: 'error',
             title: 'Error',
             text: 'There was a problem processing the request.',
+            customClass: {
+                title: 'custom-swal-title',
+                htmlContainer: 'custom-swal-text',
+                confirmButton: 'custom-swal-button',
+                cancelButton: 'custom-swal-button'
+            }
         });
     });
 });
