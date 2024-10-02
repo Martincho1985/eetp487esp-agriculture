@@ -22,18 +22,25 @@
             <a href="/dashboard">
                 <img id="logo" src="/img/logo.png" alt="logo">
             </a>
-            <img id="nombre_pagina" src="/img/nombre_pagina.png" alt="">
+            <img id="nombre_pagina" src="/img/nombre_pagina.png" alt="name page">
         </div>
         <div class="user-menu">
-            <img id="user-avatar" src="/img/pngwing.png" alt="User Avatar">
+            <% if (user.profilePicture) { %>
+                <img src="<%= user.profilePicture %>" alt="Profile Pic" class="profile-pic-avatar">
+            <% } else { %>
+                <img id="user-avatar" src="/img/pngwing.png" alt="Profile Pic">
+            <% } %>
             <div class="dropdown-content">
                 <p class="userName"><%= user.username %></p>
                 <p class="userRole"><%= user.role %></p>
-                <a href="/#">Perfil</a>
+                <a href="/users/profile">Profile</a>
+                <% if (user.role === 'student') { %>
+                    <a href="/users/grades">Grades</a>
+                <% } %>
                 <% if (user.role === 'teacher') { %>
                     <a href="/question-bank">Create Exam</a>
-                    <a href="/">Registration List</a>
-                    <a href="/">Grades</a>
+                    <a href="/users/userList">Registration List</a>
+                    <a href="/users/teacher-grades">Grades</a>
                 <% } %>
                 <a href="/api/auth/logout">Log Out</a>
             </div>
@@ -55,9 +62,9 @@
             <h1>Perfil de Usuario</h1>
     
             <% if (user.profilePicture) { %>
-                <img src="<%= user.profilePicture %>" alt="Foto de perfil" style="width: 150px; height: 150px;">
+                <img src="<%= user.profilePicture %>" alt="Profile Pic" class="profile-pic">
             <% } else { %>
-                <img src="/img/pngwing.png" alt="Foto de perfil por defecto" style="width: 150px; height: 150px;">
+                <img src="/img/pngwing.png" alt="Profile Pic" style="width: 150px; height: 150px;">
             <% } %>
 
             <p><strong>Username:</strong> <%= user.username %></p>

@@ -52,6 +52,7 @@ app.use('/interactive', questionRoutes);
 app.use('/', profileRoutes); //Ruta para acceder al profile.ejs y edit-profile.ejs
 app.use('/users', userRoutes);
 app.use('/users', gradesRoute);
+app.use('/assets/uploadProfilePics', express.static(path.join(__dirname, 'assets/uploadProfilePics'))); //middleware para acceder a las imagenes del perfil guardadas en la base de datos para mostrarse en el navegador
 
 
 // Configuración de EJS
@@ -75,15 +76,6 @@ app.get('/classes/:classNumber/:unit', isAuthenticated, (req, res) => {
   const { classNumber, unit } = req.params;
   res.render(`classes/${classNumber}/${unit}`, { user: req.session.user });
 });
-
-// app.get('/userList', (req, res) => {
-//     // Obtén los usuarios desde la base de datos o desde algún otro lugar
-//     const users = User.find(); // Por ejemplo, si usas Mongoose
-
-//     // Asegúrate de que envías 'users' a la vista
-//     res.render('userList', { users });
-// });
-
 
 // Ruta para todas las unidades dentro de '/classes/:classNumber'
 app.get('/users/:uPage', isAuthenticated, (req, res) => {

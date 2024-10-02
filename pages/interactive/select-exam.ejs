@@ -22,15 +22,22 @@
             <img id="nombre_pagina" src="/img/nombre_pagina.png" alt="">
         </div>
         <div class="user-menu">
-            <img id="user-avatar" src="/img/pngwing.png" alt="User Avatar">
+            <% if (user.profilePicture) { %>
+                <img src="<%= user.profilePicture %>" alt="Profile Pic" class="profile-pic-avatar">
+            <% } else { %>
+                <img id="user-avatar" src="/img/pngwing.png" alt="Profile Pic">
+            <% } %>
             <div class="dropdown-content">
                 <p class="userName"><%= user.username %></p>
                 <p class="userRole"><%= user.role %></p>
-                <a href="/perfil">Perfil</a>
+                <a href="/users/profile">Profile</a>
+                <% if (user.role === 'student') { %>
+                    <a href="/users/grades">Grades</a>
+                <% } %>
                 <% if (user.role === 'teacher') { %>
                     <a href="/question-bank">Create Exam</a>
-                    <a href="/">Registration List</a>
-                    <a href="/">Grades</a>
+                    <a href="/users/userList">Registration List</a>
+                    <a href="/users/teacher-grades">Grades</a>
                 <% } %>
                 <a href="/api/auth/logout">Log Out</a>
             </div>

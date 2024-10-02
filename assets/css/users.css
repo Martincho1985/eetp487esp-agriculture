@@ -170,6 +170,21 @@ body{
 
 /*MAIN*/
 /*ESTILOS AL PROFILE.EJS*/
+.profile-pic {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%; /* Hace la imagen redonda */
+    border: 5px solid #043E04;
+    object-fit: cover; /* Asegura que la imagen se ajuste bien dentro del contenedor */
+}
+.profile-pic-avatar {
+    width: 100%; /* Ajusta el tamaño del avatar según tus preferencias */
+    max-width: 6vw; /* Tamaño máximo para evitar que se expanda demasiado */
+    height: auto; /* Mantiene la proporción de la imagen */
+    border-radius: 50%; /* Hace la imagen redonda */
+    border: 3px solid yellow;
+    object-fit: cover; /* Asegura que la imagen se ajuste bien dentro del contenedor */
+}
 .profile{
     display: flex;
     justify-content: center;

@@ -60,6 +60,14 @@ body{
     background-color: yellow;
     border-radius: 50%;
 }
+.profile-pic-avatar {
+    width: 100%; /* Ajusta el tamaño del avatar según tus preferencias */
+    max-width: 6vw; /* Tamaño máximo para evitar que se expanda demasiado */
+    height: auto; /* Mantiene la proporción de la imagen */
+    border-radius: 50%; /* Hace la imagen redonda */
+    border: 3px solid yellow;
+    object-fit: cover; /* Asegura que la imagen se ajuste bien dentro del contenedor */
+}
 .dropdown-content {
     display: none;
     position: absolute;
@@ -95,8 +103,8 @@ body{
     font-style: italic;
     color: yellow;
     background-color:rgb(86, 169, 86);
-  }
-  .userRole{
+}
+.userRole{
     padding: 5px 0;
     margin: 0;
     font-family:'Kanit', sans-serif;
@@ -104,7 +112,7 @@ body{
     font-size: 120%;
     background-color: rgb(255, 255, 0, 0.8);
     border-bottom: 5px solid #043E04;
-  }
+}
   
 /*ESTILOS AL NAV-BAR*/
 #menu{
