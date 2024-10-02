@@ -9,33 +9,12 @@ document.getElementById('register-form').addEventListener('submit', async (event
   const repeatPassword = document.getElementById('repeat-password').value;
   const role = document.getElementById('role').value;
   const accessCode = document.getElementById('access-code').value;
-  const teacherAccessCode = "DOC487CAS"; // Código de acceso para docentes
-
-
+  
   if (password !== repeatPassword) {
     Swal.fire({
       icon: 'error',
       title: 'Registration Error',
       text: 'Passwords do not match.',
-      background: '#fff',
-      confirmButtonColor: '#d33',
-      confirmButtonText: 'OK',
-      customClass: {
-        title: 'custom-swal-title',
-        htmlContainer: 'custom-swal-text',
-        confirmButton: 'custom-swal-button',
-        cancelButton: 'custom-swal-button'
-      }
-    });
-    return;
-  }
-
-  // Verificar el código de acceso si el rol es 'teacher'
-  if (role === 'teacher' && accessCode !== teacherAccessCode) {
-    Swal.fire({
-      icon: 'error',
-      title: 'Access Code Error',
-      text: 'Invalid access code for teacher registration.',
       background: '#fff',
       confirmButtonColor: '#d33',
       confirmButtonText: 'OK',
@@ -55,8 +34,27 @@ document.getElementById('register-form').addEventListener('submit', async (event
       headers: {
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify({ username, email, password, role })
+      body: JSON.stringify({ username, email, password, role, accessCode }) // Enviar el accessCode al servidor
     });
+
+    const result = await response.json();
+    if (!response.ok) {
+        Swal.fire({
+          icon: 'error',
+          title: 'Access Code Error',
+          text: 'Invalid access code for teacher registration.',
+          background: '#fff',
+          confirmButtonColor: '#d33',
+          confirmButtonText: 'OK',
+          customClass: {
+            title: 'custom-swal-title',
+            htmlContainer: 'custom-swal-text',
+            confirmButton: 'custom-swal-button',
+            cancelButton: 'custom-swal-button'
+          }
+        });
+        return;
+      }
 
     if (response.ok) {
       // Si el registro es exitoso, redirigir al login o mostrar un mensaje de éxito

@@ -1,7 +1,9 @@
 //AUTORIZACION PARA INGRESAR AL DASHBOARD Y DEMAS VISTAS LUEGO DE LOGUEARSE, CASO CONTRARIO RESTRINGIDO
 
 function isAuthenticated(req, res, next) {
-  if (req.session && req.session.userId) {
+   // Verifica si la sesión y el usuario están presentes
+  if (req.session && req.session.userId && req.session.user) {
+    console.log('Usuario autenticado:', req.session.user);
     return next();
   }
 

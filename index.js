@@ -6,6 +6,9 @@ const path = require('path');
 const authRoutes = require('./routes/auth'); // Importa las rutas de autenticación
 const contactRoutes = require('./routes/contact'); // Mover la lógica de contacto a un módulo separado
 const questionRoutes = require('./routes/question');
+const profileRoutes = require('./routes/perfil');
+const userRoutes = require('./routes/userRoutes');
+const gradesRoute = require('./routes/grades');
 
 const { isAuthenticated } = require('./middleware/middleware');
 const methodOverride = require('method-override'); //para DELETE preguntas
@@ -31,9 +34,10 @@ app.use(methodOverride('_method'));
 
 // Configuración de sesiones (Da acceso al loguearse)
 app.use(session({
-  secret: 'tuSecreto',
+  secret: 'u(5RV!wISmXSNLtjUEFlXfNDNwf-(oFE8R3d3F@y}3!dm%Y,"-',
   resave: false,
-  saveUninitialized: false
+  saveUninitialized: false,
+  cookie: { secure: false } // true para HTTPS en producción
 }));
 
 // Servir archivos estáticos
@@ -45,6 +49,10 @@ app.use('/api/auth', authRoutes); // Rutas de autenticación
 app.use('/api/contact', contactRoutes); // Rutas de contacto
 app.use('/', questionRoutes); //Rutas de preguntas del create exams
 app.use('/interactive', questionRoutes);
+app.use('/', profileRoutes); //Ruta para acceder al profile.ejs y edit-profile.ejs
+app.use('/users', userRoutes);
+app.use('/users', gradesRoute);
+
 
 // Configuración de EJS
 app.set('view engine', 'ejs');
@@ -66,6 +74,21 @@ app.get('/classes/:page', isAuthenticated, (req, res) => {
 app.get('/classes/:classNumber/:unit', isAuthenticated, (req, res) => {
   const { classNumber, unit } = req.params;
   res.render(`classes/${classNumber}/${unit}`, { user: req.session.user });
+});
+
+// app.get('/userList', (req, res) => {
+//     // Obtén los usuarios desde la base de datos o desde algún otro lugar
+//     const users = User.find(); // Por ejemplo, si usas Mongoose
+
+//     // Asegúrate de que envías 'users' a la vista
+//     res.render('userList', { users });
+// });
+
+
+// Ruta para todas las unidades dentro de '/classes/:classNumber'
+app.get('/users/:uPage', isAuthenticated, (req, res) => {
+  const { uPage } = req.params;
+  res.render(`users/${uPage}`, { user: req.session.user });
 });
 
 

@@ -9,14 +9,21 @@ const router = express.Router();
 
 // RUTA DE REGISTRO-------------------------------------------------------------------------------------------
 router.post('/register', async (req, res) => {
-  const { username, email, password } = req.body;
+  const { username, email, password, role, accessCode } = req.body;
+  const teacherAccessCode = "DOC487CAS"; // Código de acceso de docente en el servidor
+
   try {
     const existingUser = await User.findOne({ $or: [{ email }, { username }] });
     if (existingUser) {
       return res.status(409).json({ error: 'Usuario ya registrado con ese email o nombre de usuario' });
     }
 
-    const user = new User({ username, email, password });
+    // Verificar el código de acceso si el rol es 'teacher'
+    if (role === 'teacher' && accessCode !== teacherAccessCode) {
+      return res.status(403).json({ error: 'Código de acceso inválido para el registro de docentes' });
+    }
+
+    const user = new User({ username, email, password, role });
     await user.save();
     res.status(201).json({ message: 'Usuario registrado exitosamente' });
   } catch (err) {
@@ -49,7 +56,13 @@ router.post('/login', async (req, res) => {
     // Guardar el ID de usuario y otros detalles (nombre de usuario, rol) en la sesión
     req.session.userId = user._id;
     req.session.user = {
+      _id: user._id,
       username: user.username,
+      email: user.email,
+      firstName: user.firstName,
+      lastName: user.lastName,
+      profilePicture: user.profilePicture,
+      course: user.course,
       role: user.role,  // Guardar el rol del usuario para poder usarlo en otras partes de la aplicación
     };
 

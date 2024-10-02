@@ -5,7 +5,11 @@ const userSchema = new mongoose.Schema({
   username: String,
   email: String,
   password: String,
-  role: { type: String, enum: ['student', 'teacher'], default: 'student' } // Agrega el campo de rol con un valor predeterminado
+  firstName: String, // Nombre real
+  lastName: String,  // Apellido
+  profilePicture: { type: String, default: '' }, // URL de la foto de perfil
+  role: { type: String, enum: ['student', 'teacher'], default: 'student' },
+  course: { type: String, default: '' }, // Curso actual (solo para estudiantes)
 });
 
 

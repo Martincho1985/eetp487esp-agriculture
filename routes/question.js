@@ -213,6 +213,9 @@ router.post('/submit-exam', async (req, res) => {
         // Calcular la calificación
         const grade = (correctAnswers / totalQuestions) * 10;
 
+        // Verifica que el usuario esté correctamente almacenado en la sesión
+        console.log('Usuario logueado:', req.session.user);
+
         // Obtener el usuario de la sesión
         const user = req.session.user;
 

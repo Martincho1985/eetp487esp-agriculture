@@ -1,0 +1,476 @@
+body{
+    margin: 0;
+    padding: 0;
+}
+
+/*ESTILOS A LOS SWEET ALERTS*/
+.custom-swal-title {
+    font-family: 'Kanit', sans-serif;
+    font-weight: 600;
+}
+.custom-swal-text {
+    font-family: 'Kanit', sans-serif;
+    font-weight: 400;
+}
+.custom-swal-button {
+    font-family: 'Kanit', sans-serif;
+    font-weight: 400;
+}
+  
+/*ESTILOS AL HEADER*/
+.cabecera{
+    width: 100%;
+    height: 17vh;
+    border-top: 1vw solid rgb(255, 255, 0);
+    border-bottom: 0.5vw solid rgb(255, 255, 0);
+    background-color: rgb(4, 62, 4);
+    display: flex; 
+    align-items: center; /*alinea logo y nombre al centro horizontalmente*/
+    justify-content: space-between; /* Distribuye el espacio entre los elementos */
+    z-index: 10; /* Asegura que el header esté delante del video */
+}
+.logo-container {
+    display: flex;
+    align-items: center;
+    width: 60%; /* Ajusta según sea necesario */
+}
+#logo{
+    width: 100%;
+    max-width: 7vw;
+    padding-left: 10px;
+}
+#nombre_pagina{
+    width: 100%;
+    max-width: 35vw;
+}
+  
+/*AVATAR*/
+/* Menú de usuario */
+.user-menu {
+    margin-right: 2%; /* Distancia de 15px del borde derecho */
+    position: relative;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+#user-avatar {
+    width: 100%; /* Ajusta el tamaño del avatar según tus preferencias */
+    max-width: 5vw; /* Tamaño máximo para evitar que se expanda demasiado */
+    height: auto; /* Mantiene la proporción de la imagen */
+    background-color: yellow;
+    border-radius: 50%;
+}
+.dropdown-content {
+    display: none;
+    position: absolute;
+    right: 0; /* Alinea el menú desplegable al lado derecho del avatar */
+    top: 100%; /* Coloca el menú debajo del avatar */
+    background-color: rgb(68, 68, 68, 0.8);
+    min-width: 150px; /* Anchura mínima del menú */
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 100;
+    text-align: center;
+}
+.dropdown-content a {
+    color: #FFFFFF;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    font-family: 'Kanit', sans-serif;
+    font-size: 100%;
+}
+.dropdown-content a:hover {
+    background: rgb(255, 255, 0, 0.7);
+    color: #043E04;
+}
+/* Mostrar el menú desplegable al pasar el ratón por encima */
+.user-menu:hover .dropdown-content {
+    display: block;
+}
+.userName{
+    padding: 5px 0;
+    margin: 0;
+    font-family:'Kanit', sans-serif;
+    font-size: 130%;
+    font-style: italic;
+    color: yellow;
+    background-color:rgb(86, 169, 86);
+}
+.userRole{
+    padding: 5px 0;
+    margin: 0;
+    font-family:'Kanit', sans-serif;
+    color: red;
+    font-size: 120%;
+    background-color: rgb(255, 255, 0, 0.8);
+    border-bottom: 5px solid #043E04;
+}
+  
+/*ESTILOS AL NAV-BAR*/
+#menu{
+    width: 100%;
+    height: 10vh;
+    top: 19.5vh;
+    padding-left: 18px;
+    background-color: rgb(32, 31, 31);
+    display: flex;
+    align-items: center;
+    z-index: 9; /* Asegura que el nav esté delante del video */
+    box-sizing: border-box;
+}
+  #menu ul, #menu li {
+    margin: 0 auto;
+    padding: 0;
+    list-style: none
+}
+#menu ul {
+    width: 100%;
+    text-align: left;
+}
+#menu li {
+    display: inline-block;
+    position: relative;
+}
+#menu a {
+    display: block;
+    line-height: 10vh; /*alto de fondo del navbar*/
+    padding: 0 14px;
+    text-decoration: none;
+    color: #FFFFFF;
+    font-size: 100%; /*tamaño letra del menu*/
+    font-family: 'Kanit', sans-serif;
+}
+#menu li a:hover {
+    color: #043E04;
+    font-weight: bolder;
+    background: rgb(255, 255, 0);
+}
+#menu input {
+    display: none;
+    margin: 0;
+    padding: 0;
+    height: 10vh;
+    width: 100%;
+    opacity: 0;
+    cursor: pointer
+}
+#menu label {
+    display: none;
+    line-height: 10vh;
+    text-align: center;
+    position: absolute;
+    left: 35px
+}
+#menu label:before {
+    font-size: 100%;
+    color: #FFFFFF;
+    content: "\2261"; 
+    margin-left: 20px;
+}
+
+/*MAIN*/
+/*ESTILOS AL PROFILE.EJS*/
+.profile{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: 0;
+    background-image: url('/img/campo3.jpg');
+    background-size: cover;
+    background-position: center;
+}
+.profile-section {
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
+    max-width: 400px;
+    width: 100%;
+    margin: 20px;
+    text-align: center;
+    font-family: 'Kanit', sans-serif;
+}
+.profile-section h1 {
+    font-size: 2.5em;
+    color: rgb(4, 62, 4);
+    margin: 0;
+}
+.profile-section p {
+    font-size: 1.1em;
+    font-weight: 900;
+    color: rgb(4, 62, 4);
+    margin: 10px 0;
+}
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+form select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid rgb(173, 169, 169);
+    border-radius: 5px;
+    background-color: #ffffff; /* Fondo blanco para el select */
+    color: rgb(110, 104, 104);
+    font-family: 'Kanit', sans-serif;
+    font-size: 100%;
+}
+input {
+    width: 94%;
+    font-size: 100%;
+    color: rgb(110, 104, 104);
+    padding: 10px;
+    border: 1px solid rgb(173, 169, 169);
+    border-radius: 5px;
+    font-family: 'Kanit', sans-serif;
+}
+.sr-only {
+    position: absolute;
+    left: -10000px;
+    top: auto;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+}
+.btnPerfil{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px auto;
+    width: 150px;
+    height: 30px;
+    background-color: orange;
+    border: 3px solid rgb(4, 62, 4);
+    border-radius: 10px;
+    color: black;
+    font-family: 'Kanit', sans-serif;
+    font-size: 17px;
+    position: relative; /* Set position to relative */
+    z-index: 2; /* Set z-index higher than #cuerpo but lower than #paisaje */
+}
+.btnPerfil:hover {
+    background-color: green;
+    color: white;
+}
+button{
+    margin-top: 15px;
+    cursor: pointer;
+    background-color: orange;
+    border: 2px solid rgb(4, 62, 4);
+    border-radius: 5px;
+    color: black;
+    font-family: 'Kanit', sans-serif;
+    font-size: 17px;
+}
+button:hover {
+    background-color: green;
+    color: white;
+}
+
+/*ESTILOS AL USER-LIST-EJS Y AL GRADES.EJS*/
+.user-list,
+.user-grades{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: 0;
+    background: rgb(11,24,1);
+    background: linear-gradient(180deg, rgba(11,24,1,1) 0%, rgba(30,64,2,1) 50%, rgba(67,107,4,1) 100%);
+}
+.filter-list {
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
+    max-width: 400px;
+    width: 100%;
+    margin: 20px;
+    text-align: center;
+    font-family: 'Kanit', sans-serif;
+}
+.filter-list h1 {
+    font-size: 2.5em;
+    color: rgb(4, 62, 4);
+    margin: 0;
+}
+.grades-list h1{
+    text-align: center;
+    font-family: 'Kanit', sans-serif;
+    font-size: 2.5em;
+    color: rgb(255, 255, 255);
+    margin-top: 20px;
+    margin-bottom: 0;
+}
+.filter-list h2 {
+    font-size: 1.5em;
+    color: rgb(4, 62, 4);
+    margin: 7px;
+}
+/* Estilo para la tabla de resultados */
+.registration-list table,
+.grades-list table {
+    width: 100%;
+    max-width: 800px; /* Ajusta el ancho máximo de la tabla */
+    margin: 20px auto; /* Centra la tabla horizontalmente */
+    border-collapse: collapse; /* Elimina los espacios entre celdas */
+    font-size: 18px; /* Tamaño de fuente */
+    font-family: 'Kanit', sans-serif;
+    background-color: white; /* Fondo blanco para las celdas */
+    text-align: center; /* Centra el contenido de las celdas */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Añade sombra alrededor */
+}
+.registration-list th, .registration-list td,
+.grades-list th, .grades-list td {
+    padding: 12px 15px; /* Añade espaciado dentro de las celdas */
+    border: 3px solid rgb(4, 62, 4); /* Añade un borde */
+}
+.registration-list th,
+.grades-list th {
+    background-color: yellow; /* Fondo para los encabezados */
+    color: rgb(4, 62, 4); /* Texto blanco para los encabezados */
+    font-weight: bold;
+}
+.registration-list td,
+.grades-list td {
+    padding: 12px 15px;
+    border: 3px solid rgb(4, 62, 4);
+    text-align: center;
+    vertical-align: middle; /* Asegura el centrado vertical básico */
+}
+.registration-list td form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+#deletebtn {
+    background-color: red;
+    color: white;
+    cursor: pointer;
+    border: 2px solid red;
+    border-radius: 5px;
+    padding: 10px 15px;
+    margin: 0;
+    display: inline-block;
+}
+#deletebtn:hover {
+    background-color: green;
+    color: white;
+}
+
+
+/* FOOTER */
+footer {
+    width: 100%;
+    border-top: 1.3vw solid rgb(32, 31, 31);
+    border-bottom: 1vw solid yellow;
+    background-color: rgb(4, 62, 4);
+    padding-top: 1%;
+}
+footer p {
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    font-style: italic;
+    font-size: 100%;
+    text-align: center;
+}
+.icon-envelope, .icon-whatsapp {
+    margin-right: 10px;
+}
+.redes {
+    margin-top: 25px;
+    padding-bottom: 3%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+.logo-escuela, .escuela {
+    width: 12%;
+    border-radius: 10px 0px;
+    margin-bottom: 15px;
+    box-shadow: 0 0 5px yellow;
+}
+.escuela {
+    width: 35%;
+    margin-bottom: 30px;
+}
+.iconos {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+}
+a {
+    text-decoration: none; /* para quitar los subrayados a los enlaces */
+}
+.icon-facebook2, .icon-instagram {
+    font-size: 150%; /* Tamaño de los iconos en font */
+    color: yellow;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+.icon-facebook2:hover, .icon-instagram:hover {
+    color: orange;
+    transform: scale(1.2);
+}
+
+/*-----------------------------------------------------------------*/
+
+/* MEDIA QUERIES PARA RESPONSIVIDAD */
+@media screen and (max-width: 800px){
+
+    /*ESTILOS AL HEADER*/
+    .cabecera{
+        height: 10vh;
+    }
+    #logo{
+        max-width: 10vw;
+    }
+    #nombre_pagina{
+        max-width: 45vw;
+    }
+  
+    /*AVATAR*/
+    #user-avatar {
+        max-width: 9vw; /* Tamaño máximo para evitar que se expanda demasiado */
+    }
+    .dropdown-content {
+        min-width: 100px; /* Anchura mínima del menú */
+    }
+    .dropdown-content a {
+        font-size: 3vw;
+    }
+    .userName{
+        font-size: 100%;
+    }
+    .userRole{
+        font-size: 100%;
+    }
+  
+    /*ESTILOS AL NAV-BAR*/
+    #menu {position:relative; top: 0; height: 7vh;}
+    #menu input, #menu label {position:absolute; display:block; left: 0; } /*Menu hamburguesa alineado a la izq*/
+    #menu input {z-index:4}
+    #menu input:checked + label {color:#FFFFFF;}
+    #menu input:checked + label:before {content:"\00d7"} /*Caracter de una X */
+    #menu input:checked ~ ul {display:block}
+    #menu label:before{font-size: 5vw;} /* Ajusta este valor para cambiar el tamaño del ícono */
+    #menu ul {background:rgb(68, 68, 68, 0.8);position:absolute;top:100%;right:0;left:0;z-index:3;height:auto;display:none;text-align:left;}
+    #menu ul.sub-menus {width:100%;position:static;}
+    #menu ul.sub-menus a {padding-left:30px;}
+    #menu li {display:block;float:none;width:auto;}
+
+    /*MAIN*/
+    
+    /* FOOTER */
+    footer p {
+        font-size: 3vw;
+        padding: 0 40px;
+    }
+}

@@ -5,4 +5,7 @@ npm install express mongoose body-parser ejs
 npm install method-override
 npm install express-session
 npm install bcryptjs
+npm install multer
+npm install dotenv
+
 

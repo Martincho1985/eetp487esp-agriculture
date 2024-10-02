@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en" translate="no">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta author="Leiva Martin">
+    <title>Teacher´s Grades</title>
+    <link rel="icon" type="segador.png" href="/img/tractores.png">
+    <link rel="stylesheet" href="/css/users.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kanit&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Agbalumo&family=Oswald:wght@200..700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/font/iconos.css">
+    <!-- SweetAlert CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+
+</head>
+<body>
+    <header class="cabecera">
+        <div class="logo-container">
+            <a href="/dashboard">
+                <img id="logo" src="/img/logo.png" alt="logo">
+            </a>
+            <img id="nombre_pagina" src="/img/nombre_pagina.png" alt="">
+        </div>
+        <div class="user-menu">
+            <img id="user-avatar" src="/img/pngwing.png" alt="User Avatar">
+            <div class="dropdown-content">
+                <p class="userName"><%= user.username %></p>
+                <p class="userRole"><%= user.role %></p>
+                <a href="/#">Perfil</a>
+                <% if (user.role === 'teacher') { %>
+                    <a href="/question-bank">Create Exam</a>
+                    <a href="/">Registration List</a>
+                    <a href="/">Grades</a>
+                <% } %>
+                <a href="/api/auth/logout">Log Out</a>
+            </div>
+        </div>
+    </header>
+    <nav id='menu'>
+        <input type='checkbox' id='responsive-menu'><label></label>
+        <ul>
+            <li><a href='/classes/first'>1st YEAR</a></li>
+            <li><a href='/classes/second'>2nd YEAR</a></li>
+            <li><a href='/classes/third'>3rd YEAR</a></li>
+            <li><a href='/classes/fourth'>4th YEAR</a></li>
+            <li><a href='/classes/fifth'>5th YEAR</a></li>
+            <li><a href='/classes/sixth'>6th YEAR</a></li>
+        </ul>
+    </nav>
+    <main class="user-grades">
+        <section class="filter-list">
+            <h2>Filter grades by year</h2>
+            <form action="/users/teacher-grades" method="GET">
+                <select id="course-select" name="course">
+                    <option value="">All the Courses</option>
+                    <% allCourses.forEach(course => { %>
+                        <option value="<%= course %>"><%= course %></option>
+                    <% }) %>
+                </select>
+                <button type="submit">Filtrar</button>
+            </form>
+        </section>
+        <section class="grades-list">
+            <h1>User´s Grades</h1>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Last Name</th>
+                        <th>First Name</th>
+                        <th>Role</th>
+                        <th>Username</th>
+                        <th>Year</th>
+                        <th>Unit</th>
+                        <th>High Score</th>
+                        <th>Attempts</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% examResults.forEach(result => { %>
+                        <tr>
+                          <% if (result.user) { %>
+                            <td><%= result.user.lastName %></td>
+                            <td><%= result.user.firstName %></td>
+                            <td><%= result.user.role %></td>
+                            <td><%= result.user.username %></td>
+                          <% } else { %>
+                            <td colspan="4">No user data</td>
+                          <% } %>
+                          <td><%= result.course %></td>
+                          <td><%= result.unit %></td>
+                          <td><%= result.highestScore %></td>
+                          <td><%= result.attempts %></td>
+                        </tr>
+                    <% }) %>
+                </tbody>
+            </table>
+        </section>
+
+    </main>
+    <footer>
+        <p>Copyright © 2024 - Leiva Martín R.</p>
+        <p><span class="icon-envelope"></span>englishcultivatehub@gmail.com &emsp;|| &emsp;<span class="icon-whatsapp"></span>(3482)-666150</p> 
+        <div class="redes">
+            <img class="logo-escuela" src="/img/logo_escuela.jpeg" alt="logo_escuela">
+            <img class="escuela" src="/img/agrotecnica.jpg" alt="Escuela">
+            <div class="iconos">
+                <a href="https://www.facebook.com/groups/174789172685781" target="_blank" class="icon-facebook2"></a>
+                <a href="https://www.instagram.com/agro487cas/?hl=es-la" target="_blank" class="icon-instagram"></a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

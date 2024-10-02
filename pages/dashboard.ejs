@@ -28,11 +28,14 @@
             <div class="dropdown-content">
                 <p class="userName"><%= user.username %></p>
                 <p class="userRole"><%= user.role %></p>
-                <a href="/#">Perfil</a>
+                <a href="/users/profile">Perfil</a>
+                <% if (user.role === 'student') { %>
+                    <a href="/users/grades">Grades</a>
+                <% } %>
                 <% if (user.role === 'teacher') { %>
                     <a href="/question-bank">Create Exam</a>
-                    <a href="/">Registration List</a>
-                    <a href="/">Grades</a>
+                    <a href="/users/userList">Registration List</a>
+                    <a href="/users/teacher-grades">Grades</a>
                 <% } %>
                 <a href="/api/auth/logout">Log Out</a>
             </div>
