@@ -3,6 +3,7 @@ const router = express.Router();
 const User = require('../models/User');
 const multer = require('multer');
 const path = require('path');
+const fs = require('fs'); 
 
 // RUTA PARA VER EL PERFIL -----------------------------------------------------------------------------------
 router.get('/profile', async (req, res) => {
@@ -66,6 +67,12 @@ router.post('/profile/edit', upload.single('profilePicture'), async (req, res) =
 
     // Verifica si se subió una nueva imagen
     if (req.file) {
+      // Si el usuario ya tiene una imagen de perfil, elimínala
+      if (user.profilePicture && fs.existsSync(path.join(__dirname, `../${user.profilePicture}`))) {
+        fs.unlinkSync(path.join(__dirname, `../${user.profilePicture}`));
+      }
+
+      // Guarda la nueva imagen
       user.profilePicture = `/assets/uploadProfilePics/${req.file.filename}`;
       console.log('Imagen guardada en:', user.profilePicture); // Verifica la ruta guardada
     }
@@ -75,10 +82,50 @@ router.post('/profile/edit', upload.single('profilePicture'), async (req, res) =
     }
 
     await user.save();
-    res.redirect('/users/profile'); //Aca me redirecciona a la vista del perfil
+
+    // ACTUALIZA LA SESIÓN DEL USUARIO CON LOS NUEVOS DATOS Y SE ACTUALIZA LA FOTO DE PERFIL EN EL MOMENTO
+    req.session.userId = user._id; // Asegúrate de que el ID esté en la sesión
+    req.session.user = user; // Actualiza toda la información del usuario en la sesión
+
+    // Redirige a la vista del perfil
+    res.redirect('/users/profile'); 
   } catch (error) {
     console.error('Error al actualizar el perfil:', error);
     res.status(500).send('Error al actualizar el perfil');
+  }
+});
+
+
+// RUTA PARA RESTABLECER LA FOTO DE PERFIL POR DEFECTO ----------------------------------------------------
+router.post('/profile/reset-photo', async (req, res) => {
+  try {
+    const user = await User.findById(req.session.userId);
+    if (!user) {
+      return res.status(404).send('Usuario no encontrado');
+    }
+
+    // Establece la imagen por defecto
+    const defaultPhotoPath = '/img/pngwing.png';
+
+    // Si el usuario ya tiene una imagen de perfil personalizada, la eliminamos
+    if (user.profilePicture && user.profilePicture !== defaultPhotoPath && fs.existsSync(path.join(__dirname, `../${user.profilePicture}`))) {
+      fs.unlinkSync(path.join(__dirname, `../${user.profilePicture}`));
+    }
+
+    // Asignar la imagen por defecto al usuario
+    user.profilePicture = defaultPhotoPath;
+
+    await user.save();
+
+    // ACTUALIZA LA SESIÓN DEL USUARIO CON LOS NUEVOS DATOS Y SE ACTUALIZA LA FOTO DE PERFIL EN EL MOMENTO
+    req.session.userId = user._id; // Asegúrate de que el ID esté en la sesión
+    req.session.user = user; // Actualiza toda la información del usuario en la sesión
+
+    // Redirigir al perfil del usuario
+    res.redirect('/users/profile');
+  } catch (error) {
+    console.error('Error al restablecer la foto:', error);
+    res.status(500).send('Error al restablecer la foto');
   }
 });
 

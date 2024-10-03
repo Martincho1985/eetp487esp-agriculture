@@ -89,10 +89,26 @@
 
                 <label for="profilePicture">User´s Photo:</label>
                 <input type="file" name="profilePicture">
+
+                <!-- Botón para restablecer la imagen por defecto -->
+                <button type="button" id="resetPhotoButton">Restablecer Foto por Defecto</button>
                 
                 <button type="submit">Save</button>
             </form>
-        </section> 
+        </section>
+        
+        <script>
+            // Al presionar el botón "Restablecer Foto por Defecto"
+            document.getElementById('resetPhotoButton').addEventListener('click', function () {
+                // Crear un formulario oculto para enviar la solicitud de restablecimiento
+                const form = document.createElement('form');
+                form.method = 'POST';
+                form.action = '/profile/reset-photo';
+        
+                document.body.appendChild(form);
+                form.submit(); // Enviar el formulario
+            });
+        </script>
     </main>
     <footer>
         <p>Copyright © 2024 - Leiva Martín R.</p>

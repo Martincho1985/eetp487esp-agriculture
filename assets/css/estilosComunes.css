@@ -63,9 +63,8 @@ body{
   border-radius: 50%;
 }
 .profile-pic-avatar {
-  width: 100%; /* Ajusta el tamaño del avatar según tus preferencias */
-  max-width: 6vw; /* Tamaño máximo para evitar que se expanda demasiado */
-  height: auto; /* Mantiene la proporción de la imagen */
+  width: 6vw; /* Ajusta el tamaño del avatar según tus preferencias */
+  height: 6vw; /* Mantiene la proporción de la imagen */
   border-radius: 50%; /* Hace la imagen redonda */
   border: 3px solid yellow;
   object-fit: cover; /* Asegura que la imagen se ajuste bien dentro del contenedor */
