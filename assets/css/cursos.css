@@ -382,7 +382,7 @@ a {
         height: 10vh;
     }
     #logo{
-        max-width: 10vw;
+        max-width: 13vw;
     }
     #nombre_pagina{
         max-width: 45vw;
@@ -390,19 +390,24 @@ a {
   
     /*AVATAR*/
     #user-avatar {
-        max-width: 9vw; /* Tamaño máximo para evitar que se expanda demasiado */
+        max-width: 10vw; /* Tamaño máximo para evitar que se expanda demasiado */
+    }
+    .profile-pic-avatar {
+        width: 10vw; /* Ajusta el tamaño del avatar según tus preferencias */
+        height: 10vw; /* Mantiene la proporción de la imagen */
+        border: 1px solid yellow;
     }
     .dropdown-content {
         min-width: 100px; /* Anchura mínima del menú */
     }
     .dropdown-content a {
-        font-size: 3vw;
+        font-size: 4vw;
     }
     .userName{
-        font-size: 100%;
+        font-size: 5vw;
     }
     .userRole{
-        font-size: 100%;
+        font-size: 5vw;
     }
   
     /*ESTILOS AL NAV-BAR*/

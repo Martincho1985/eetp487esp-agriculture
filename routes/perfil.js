@@ -4,9 +4,10 @@ const User = require('../models/User');
 const multer = require('multer');
 const path = require('path');
 const fs = require('fs'); 
+const { isAuthenticated } = require('../middleware/middleware');
 
 // RUTA PARA VER EL PERFIL -----------------------------------------------------------------------------------
-router.get('/profile', async (req, res) => {
+router.get('/profile', isAuthenticated, async (req, res) => {
   try {
     // Suponiendo que el usuario está logueado y el ID del usuario está en la sesión
     const user = await User.findById(req.session.userId);
@@ -48,7 +49,7 @@ const upload = multer({ storage });
 
 
 //RUTA PARA VER LA VISTA DE EDICION  DEL PERFIL------------------------------------------------------------------  
-router.get('/profile/edit', async (req, res) => {
+router.get('/profile/edit', isAuthenticated, async (req, res) => {
   const user = await User.findById(req.session.userId);
   res.render('edit-profile', { user });
 });

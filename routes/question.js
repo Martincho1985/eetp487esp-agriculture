@@ -1,12 +1,13 @@
 const express = require('express');
 const Question = require('../models/Question'); // Suponiendo que tienes un modelo de pregunta
 const ExamResult = require('../models/ExamResult');  // Modelo de los resultados del examen
+const { isAuthenticated } = require('../middleware/middleware');
 
 const router = express.Router();
 
 //---------------------------VISTAS PARA ROL DOCENTE----------------------------------------
 // RUTA PARA OBTENER TODAS LAS PREGUNTAS FILTRADAS EN EL QUESTION BANK ----------------------------------------
-router.get('/question-bank', async (req, res) => {
+router.get('/question-bank', isAuthenticated, async (req, res) => {
     try {
         const { course, unit } = req.query;
         let filter = {};
@@ -44,7 +45,7 @@ router.post('/new-question', async (req, res) => {
     }
 });
 // RUTA PARA OBTENER LAS NUEVAS PREGUNTAS
-router.get('/new-question', (req, res) => {
+router.get('/new-question', isAuthenticated, (req, res) => {
     // Asegúrate de que req.session.user esté definido
     const user = req.session.user;
     
@@ -55,7 +56,7 @@ router.get('/new-question', (req, res) => {
 
 
 // RUTA PARA ACCEDER A LA PREGUNTA ESPECIFICA QUE QUIERO EDITAR ------------------------------------------------------
-router.get('/edit-question/:id', async (req, res) => {
+router.get('/edit-question/:id', isAuthenticated, async (req, res) => {
     try {
         const question = await Question.findById(req.params.id);
         if (!question) {
@@ -104,7 +105,7 @@ router.delete('/:id', async (req, res) => {
 
 //--------------------------------------VISTAS PARA ROL ESTUDIANTE---------------------------------------
 // RUTA PARA MOSTRAR CURSOS Y UNIDADES PARA SELECCIONAR EL EXAMN EN CUESTION------------------------------
-router.get('/select-exam', async (req, res) => {
+router.get('/select-exam', isAuthenticated, async (req, res) => {
     try {
         // Obtener todas las preguntas
         const questions = await Question.find().exec();

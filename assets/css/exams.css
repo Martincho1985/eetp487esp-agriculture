@@ -489,7 +489,7 @@ a {
         height: 10vh;
     }
     #logo{
-        max-width: 10vw;
+        max-width: 13vw;
     }
     #nombre_pagina{
         max-width: 45vw;
@@ -497,13 +497,24 @@ a {
   
     /*AVATAR*/
     #user-avatar {
-        max-width: 9vw; /* Tamaño máximo para evitar que se expanda demasiado */
+        max-width: 10vw; /* Tamaño máximo para evitar que se expanda demasiado */
+    }
+    .profile-pic-avatar {
+        width: 10vw; /* Ajusta el tamaño del avatar según tus preferencias */
+        height: 10vw; /* Mantiene la proporción de la imagen */
+        border: 1px solid yellow;
     }
     .dropdown-content {
         min-width: 100px; /* Anchura mínima del menú */
     }
     .dropdown-content a {
-        font-size: 3vw;
+        font-size: 4vw;
+    }
+    .userName{
+        font-size: 5vw;
+    }
+    .userRole{
+        font-size: 5vw;
     }
   
     /*ESTILOS AL NAV-BAR*/
@@ -520,22 +531,92 @@ a {
     #menu li {display:block;float:none;width:auto;}
 
     /*MAIN*/
+    /*------ESTILOS AL SELECT-EXAM-------*/
     .examen-curso h1{
         font-size: 200%;
     }
     .examen-curso h2{
+        font-size: 150%; 
+    }
+    /* Estilos para los select de course y unit */
+    .examen-curso select {
         font-size: 120%;
     }
-    .examenes-interactivos{
-        gap: 20px; /* Agrega espacio entre las cajas */
-        padding: 20px 20px 40px 20px; /* Añade espacio interno alrededor del contenedor */
+    .examen-curso select option {
+        font-size: 60%;
     }
-    .exam {
-        width: 150px;
-        height: 150px;
+    .examen-curso button,
+    .examen-interactivo button,
+    .retroalimentacion button { 
+        font-size: 100%;
+        margin-top: 30px;
+        margin-bottom: 30px; 
     }
-    .exam a {
-        font-size: 130%;
+    /*----------ESTILOS AL START EXAM------------*/
+    .examen-interactivo h1{
+        font-size: 200%;
+    }
+    .examen-interactivo h2{
+        font-size: 150%;
+    }
+    #timer{
+        font-size: 110%; /* Aumenta el tamaño de la fuente */
+        padding: 20px 20px; /* Espaciado interno */
+    }
+    .examen-interactivo .question {
+        font-size: 80%;
+    }
+    .examen-interactivo .question ul {
+        padding-left: 0; /* Elimina el espacio de sangría predeterminado */
+    }
+    .examen-interactivo .question li {
+        padding-left: 0; /* Asegura que las opciones no tengan sangría */
+        margin-left: 0; /* Asegura que no haya margen a la izquierda */
+    }
+    .examen-interactivo .question input {
+        margin-left: 0; /* Alinea el radio button al borde izquierdo */
+    }
+    /*----------ESTILOS AL RESULT EXAM------------*/
+    .tabla-resultados{
+        width: 100%; /* Ajusta según sea necesario */
+        margin-top: 0;
+        margin-bottom: 10px;
+        border-radius: 0;
+    }
+    .tabla-resultados h1{
+        font-size: 150%;
+        margin-top:10px;
+    }
+    /* Estilo para la tabla de resultados */
+    .tabla-resultados table {
+        width: 100%;
+        font-size: 13px; /* Tamaño de fuente */
+    }
+    .tabla-resultados th, .tabla-resultados td {
+        padding: 8px 11px; /* Añade espaciado dentro de las celdas */
+    }
+    .tabla-resultados th {
+        font-weight: lighter;
+    }
+    .retroalimentacion{
+        width: 100%; /* Ajusta según sea necesario */
+    }
+    .retroalimentacion h2{
+        font-size: 150%;
+    }
+    .feedback{
+        margin-bottom: 10px;
+    }
+    .feedback{
+        font-size: 13px;
+    }
+    .feedback:nth-child(odd) {
+        padding: 10px 20px;
+        border-radius: 0;
+    }
+    .feedback:nth-child(even) {
+        padding: 10px 20px;
+        border-radius: 0;
     }
     
     /* FOOTER */

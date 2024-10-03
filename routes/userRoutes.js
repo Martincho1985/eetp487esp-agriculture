@@ -1,9 +1,10 @@
 const express = require('express');
 const User = require('../models/User'); // Asegúrate de que la ruta al modelo sea correcta
 const router = express.Router();
+const { isAuthenticated } = require('../middleware/middleware');
 
 // RUTA PARA FILTRAR TODOS LOS USUARIOS REGISTRADOS EN USERLIST------------------------------------------
-router.get('/userList', async (req, res) => {
+router.get('/userList', isAuthenticated, async (req, res) => {
     try {
         const { filterCourse, filterRole } = req.query; // Obtén los filtros del query string
         console.log('Filter Course:', filterCourse); // Agrega esta línea para depurar

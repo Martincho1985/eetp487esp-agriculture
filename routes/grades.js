@@ -3,9 +3,10 @@ const express = require('express');
 const router = express.Router();
 const User = require('../models/User');
 const ExamResult = require('../models/ExamResult');
+const { isAuthenticated } = require('../middleware/middleware');
 
 // RUTA PARA OBTENER LAS CALIFICACIONES DE CADA USUARIO POR INDIVIDUO -----------------------------------------
-router.get('/grades', async (req, res) => {
+router.get('/grades', isAuthenticated, async (req, res) => {
   try {
     // Obtener el usuario logueado de la sesión
     const user = req.session.user;
@@ -22,7 +23,7 @@ router.get('/grades', async (req, res) => {
 });
 
 // RUTA PARA OBTENER TODAS LAS CALIFICACIONES Y FILTRARLAS POR CURSO
-router.get('/teacher-grades', async (req, res) => {
+router.get('/teacher-grades', isAuthenticated, async (req, res) => {
   try {
     // Obtener el usuario logueado de la sesión (el docente)
     const user = req.session.user;
@@ -50,50 +51,5 @@ router.get('/teacher-grades', async (req, res) => {
   }
 });
 
-
-
-
-
-// RUTA PARA OBTENER TODAS LAS CALIFICACIONES DE LOS USUARIOS REGISTRADOS PARA EL DOCENTE ---------------------
-// router.get('/teacher-grades', async (req, res) => {
-//   try {
-//     // Obtener el usuario logueado de la sesión
-//     const user = req.session.user;
-
-//     // Consultar todos los resultados de exámenes y popular con la información del usuario
-//     const examResults = await ExamResult.find().populate('user');
-
-//     res.render('users/teacher-grades', { user, examResults });
-//   } catch (error) {
-//     console.error('Error al obtener los resultados de exámenes:', error);
-//     res.status(500).send('Error del servidor');
-//   }
-// });
-
-// RUTA PARA FILTRAR LAS CALIFICACIONES POR CURSO O ROL DE USUARIO
-// router.get('/users/teacher-grades', async (req, res) => {
-//   try {
-//     // Obtener el usuario logueado de la sesión
-//     const user = req.session.user;
-
-//     // Obtener los parámetros de filtrado desde la query
-//     const { course } = req.query;
-
-//     // Crear un objeto de filtro dinámico
-//     let filter = {};
-//     if (course) {
-//       filter.course = course;
-//     }
-
-//     // Consultar los usuarios para usar en el filtrado de cursos
-//     const users = await User.find(filter).sort({ lastName: 1 });
-
-//     // Renderizar la vista 'teacher-grades' con los resultados filtrados
-//     res.render('users/teacher-grades', { users, user: req.session.user });
-//   } catch (error) {
-//     console.error('Error al filtrar los resultados de exámenes:', error);
-//     res.status(500).send('Error del servidor');
-//   }
-// });
 
 module.exports = router;

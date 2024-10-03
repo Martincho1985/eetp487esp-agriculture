@@ -118,10 +118,6 @@ body {
     margin: 0;
     padding: 0;
     font-family: 'Kanit', sans-serif;
-    /* display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column; */
     background: rgb(11,24,1);
     background: linear-gradient(180deg, rgba(11,24,1,1) 0%, rgba(30,64,2,1) 50%, rgba(67,107,4,1) 100%);
 }
@@ -383,7 +379,7 @@ a {
         height: 10vh;
     }
     #logo{
-        max-width: 10vw;
+        max-width: 13vw;
     }
     #nombre_pagina{
         max-width: 45vw;
@@ -391,21 +387,35 @@ a {
   
     /*AVATAR*/
     #user-avatar {
-        max-width: 9vw; /* Tamaño máximo para evitar que se expanda demasiado */
+        max-width: 10vw; /* Tamaño máximo para evitar que se expanda demasiado */
+    }
+    .profile-pic-avatar {
+        width: 10vw; /* Ajusta el tamaño del avatar según tus preferencias */
+        height: 10vw; /* Mantiene la proporción de la imagen */
+        border: 1px solid yellow;
     }
     .dropdown-content {
         min-width: 100px; /* Anchura mínima del menú */
     }
     .dropdown-content a {
-        font-size: 3vw;
+        font-size: 4vw;
     }
     .userName{
-        font-size: 100%;
+        font-size: 5vw;
     }
     .userRole{
-        font-size: 100%;
+        font-size: 5vw;
     }
-    
+
+    /*MAIN*/
+    .actions a {/* Estilo para el botón "Editar" (azul) */
+        width: 100px; /* Ajusta el ancho a 100px */
+    }
+    /* Estilo para el botón "Eliminar" (rojo) */
+    .actions form button {
+        width: 100px; /* Ajusta el ancho a 100px */
+    }
+
     /* FOOTER */
     footer p {
         font-size: 3vw;

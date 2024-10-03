@@ -77,7 +77,8 @@ app.get('/classes/:classNumber/:unit', isAuthenticated, (req, res) => {
   res.render(`classes/${classNumber}/${unit}`, { user: req.session.user });
 });
 
-// Ruta para todas las unidades dentro de '/classes/:classNumber'
+
+// Ruta para todas las unidades dentro de '/users'
 app.get('/users/:uPage', isAuthenticated, (req, res) => {
   const { uPage } = req.params;
   res.render(`users/${uPage}`, { user: req.session.user });

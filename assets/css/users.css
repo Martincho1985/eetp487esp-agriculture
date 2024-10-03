@@ -118,7 +118,7 @@ body{
     z-index: 9; /* Asegura que el nav esté delante del video */
     box-sizing: border-box;
 }
-  #menu ul, #menu li {
+#menu ul, #menu li {
     margin: 0 auto;
     padding: 0;
     list-style: none
@@ -444,7 +444,7 @@ a {
         height: 10vh;
     }
     #logo{
-        max-width: 10vw;
+        max-width: 13vw;
     }
     #nombre_pagina{
         max-width: 45vw;
@@ -452,19 +452,24 @@ a {
   
     /*AVATAR*/
     #user-avatar {
-        max-width: 9vw; /* Tamaño máximo para evitar que se expanda demasiado */
+        max-width: 10vw; /* Tamaño máximo para evitar que se expanda demasiado */
+    }
+    .profile-pic-avatar {
+        width: 10vw; /* Ajusta el tamaño del avatar según tus preferencias */
+        height: 10vw; /* Mantiene la proporción de la imagen */
+        border: 1px solid yellow;
     }
     .dropdown-content {
         min-width: 100px; /* Anchura mínima del menú */
     }
     .dropdown-content a {
-        font-size: 3vw;
+        font-size: 4vw;
     }
     .userName{
-        font-size: 100%;
+        font-size: 5vw;
     }
     .userRole{
-        font-size: 100%;
+        font-size: 5vw;
     }
   
     /*ESTILOS AL NAV-BAR*/
@@ -481,7 +486,58 @@ a {
     #menu li {display:block;float:none;width:auto;}
 
     /*MAIN*/
-    
+    .profile-section {
+        max-width: 350px;
+        width: 70%;
+    }
+    .profile-section h1 {
+        font-size: 1.7em;
+    }
+    .profile-section p {
+        font-size: 1em; 
+    }
+   
+    /*ESTILOS AL USER-LIST-EJS Y AL GRADES.EJS*/
+    .filter-list {
+        max-width: 300px;
+        width: 100%;
+    }
+    .filter-list h1 {
+        font-size: 1.5em;
+    }
+    .grades-list h1{
+        font-size: 1.5em;
+        margin-top: 10px;
+    }
+    /* Estilo para la tabla de resultados */
+    .registration-list table{
+        width: 100%;
+        font-size: 9px; /* Tamaño de fuente */
+    }
+    .grades-list table {
+        width: 100%;
+        font-size: 10px; /* Tamaño de fuente */
+    }
+    .registration-list th, .registration-list td,
+    .grades-list th, .grades-list td {
+        padding: 2px 2px; /* Añade espaciado dentro de las celdas */
+        border: 1px solid rgb(4, 62, 4); /* Añade un borde */
+    }
+    .registration-list th,
+    .grades-list th {
+        font-weight: lighter;
+    }
+    .registration-list td,
+    .grades-list td {
+        padding: 2px 2px;
+        border: 1px solid rgb(4, 62, 4);
+    }
+    #deletebtn {
+        font-size: 10px;
+        border: 1px solid red;
+        padding: 2px 2px;
+    }
+        
     /* FOOTER */
     footer p {
         font-size: 3vw;
