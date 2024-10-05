@@ -15,8 +15,7 @@ const methodOverride = require('method-override'); //para DELETE preguntas
 
 const app = express();
 
-// Configurar el puerto
-const PORT = 3000;
+
 
 // Conectar a MongoDB
 // mongoose.connect('mongodb://localhost:27017/miBaseDeDatos487')
@@ -42,7 +41,7 @@ app.use(session({
   secret: 'u(5RV!wISmXSNLtjUEFlXfNDNwf-(oFE8R3d3F@y}3!dm%Y,"-',
   resave: false,
   saveUninitialized: false,
-  cookie: { secure: false } // true para HTTPS en producción
+  cookie: { secure: true } // true para HTTPS en producción
 }));
 
 // Servir archivos estáticos
@@ -107,7 +106,13 @@ app.get('/reset-password/:token', (req, res) => {
   res.sendFile(path.join(__dirname, 'pages', 'resetPassword.html'));
 });
 
-// Iniciar el servidor
-app.listen(PORT, () => {
-  console.log(`Servidor corriendo en http://localhost:${PORT}`);
-});
+
+// // Configurar el puerto
+// const PORT = 3000;
+
+// // Iniciar el servidor
+// app.listen(PORT, () => {
+//   console.log(`Servidor corriendo en http://localhost:${PORT}`);
+// });
+
+module.exports = app;
