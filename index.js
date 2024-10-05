@@ -19,7 +19,12 @@ const app = express();
 const PORT = 3000;
 
 // Conectar a MongoDB
-mongoose.connect('mongodb://localhost:27017/miBaseDeDatos487')
+// mongoose.connect('mongodb://localhost:27017/miBaseDeDatos487')
+//   .then(() => console.log('Conectado a MongoDB'))
+//   .catch(err => console.error('Error al conectar a MongoDB:',err));
+
+require('dotenv').config();
+mongoose.connect(process.env.MONGO_URI)
   .then(() => console.log('Conectado a MongoDB'))
   .catch(err => console.error('Error al conectar a MongoDB:',err));
 
