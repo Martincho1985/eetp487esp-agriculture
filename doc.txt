@@ -7,5 +7,6 @@ npm install express-session
 npm install bcryptjs
 npm install multer
 npm install dotenv
+npm install connect-mongo
 
 

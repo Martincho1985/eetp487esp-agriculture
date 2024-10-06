@@ -1,5 +1,6 @@
 const express = require('express');
 const mongoose = require('mongoose');
+const MongoStore = require('connect-mongo');
 const session = require('express-session');
 const bodyParser = require('body-parser');
 const path = require('path');
@@ -36,13 +37,29 @@ app.use(methodOverride('_method'));
 
 
 
-// Configuración de sesiones (Da acceso al loguearse)
+// // Configuración de sesiones (Da acceso al loguearse)
+// app.use(session({
+//   secret: 'u(5RV!wISmXSNLtjUEFlXfNDNwf-(oFE8R3d3F@y}3!dm%Y,"-',
+//   resave: false,
+//   saveUninitialized: false,
+//   cookie: { secure: true } // true para HTTPS en producción
+// }));
+
+// Configurar sesiones para almacenarse en MongoDB
 app.use(session({
-  secret: 'u(5RV!wISmXSNLtjUEFlXfNDNwf-(oFE8R3d3F@y}3!dm%Y,"-',
+  secret: 'u(5RV!wISmXSNLtjUEFlXfNDNwf-(oFE8R3d3F@y}3!dm%Y,"-',  // Usa una clave secreta fuerte
   resave: false,
   saveUninitialized: false,
-  cookie: { secure: true } // true para HTTPS en producción
+  store: MongoStore.create({
+    mongoUrl: process.env.MONGO_URI, // Asegúrate de que tu URI de MongoDB esté en las variables de entorno de Vercel
+    ttl: 24 * 60 * 60 // Tiempo de vida de la sesión en segundos (1 día en este caso)
+  }),
+  cookie: {
+    secure: false, // Cambia a true en producción con HTTPS
+    maxAge: 24 * 60 * 60 * 1000 // Cookie de sesión válida por 1 día
+  }
 }));
+
 
 // Servir archivos estáticos
 app.use(express.static(path.join(__dirname, 'assets')));
