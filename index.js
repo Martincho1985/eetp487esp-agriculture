@@ -45,7 +45,7 @@ app.use(methodOverride('_method'));
 //   cookie: { secure: true } // true para HTTPS en producción
 // }));
 
-// Configurar sesiones para almacenarse en MongoDB
+// Configurar sesiones para almacenarse en MongoDB cuando esta en vercel
 app.use(session({
   secret: 'u(5RV!wISmXSNLtjUEFlXfNDNwf-(oFE8R3d3F@y}3!dm%Y,"-',  // Usa una clave secreta fuerte
   resave: false,

@@ -487,6 +487,8 @@ a {
     /*ESTILOS AL HEADER*/
     .cabecera{
         height: 10vh;
+        border-top: 2.5vw solid rgb(255, 255, 0, 0.7);
+        border-bottom: 1.5vw solid rgb(255, 255, 0, 0.7);
     }
     #logo{
         max-width: 13vw;

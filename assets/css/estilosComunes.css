@@ -640,6 +640,8 @@ a {
   /*ESTILOS AL HEADER*/
   .cabecera{
     height: 10vh;
+    border-top: 2.5vw solid rgb(255, 255, 0, 0.7);
+    border-bottom: 1.5vw solid rgb(255, 255, 0, 0.7);
   }
   #logo{
     max-width: 13vw;
@@ -671,7 +673,7 @@ a {
   }
 
   /*ESTILOS AL NAV-BAR*/
-  #menu {position:fixed; top: 11vh; height: 7vh;}
+  #menu {position:fixed; top: 12vh; height: 7vh;}
   #menu input, #menu label {position:absolute; display:block; left: 0; } /*Menu hamburguesa alineado a la izq*/
   #menu input {z-index:4}
   #menu input:checked + label {color:#FFFFFF;}
@@ -727,14 +729,14 @@ a {
     animation: stroke 5s infinite alternate;
     stroke-width: 2;
     stroke: #ffffff;
-    font-size: 12vw; /* Tamaño de fuente responsivo */
+    font-size: 15vw; /* Tamaño de fuente responsivo */
     transform: translateY(10%); /* Ajusta la distancia vertical */
   }
   .subtext {
-    font-size: 4vw; /* Tamaño de fuente responsivo */
+    font-size: 6vw; /* Tamaño de fuente responsivo */
   }
   .profesor {
-    font-size: 3vw; /* Tamaño de fuente responsivo */
+    font-size: 4vw; /* Tamaño de fuente responsivo */
   }
 
   /*SECCION TIMETABLE*/

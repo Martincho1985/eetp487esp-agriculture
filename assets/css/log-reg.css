@@ -172,3 +172,26 @@ form select {
     margin-top: 15px;
     padding: 0 30px;
 }
+
+
+/*---------------------------------------------------------------------------------------*/
+
+/* MEDIA QUERIES PARA RESPONSIVIDAD */
+@media screen and (max-width: 800px) {
+  
+    /*ESTILOS AL HEADER*/
+    .header-logreg{
+        width: 100%;
+        height: 20vw;
+        border-top: 3.5vw solid rgb(255, 255, 0);
+        border-bottom: 1.5vw solid rgb(255, 255, 0);
+    }
+    .form-container h1 {
+        font-size: 2em;
+    }
+    .form-container p {
+        font-size: 1em;
+    }
+
+}
+  
