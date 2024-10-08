@@ -5,6 +5,16 @@ const multer = require('multer');
 const path = require('path');
 const fs = require('fs'); 
 const { isAuthenticated } = require('../middleware/middleware');
+require('dotenv').config();
+
+
+const cloudinary = require('cloudinary').v2;
+
+cloudinary.config({
+  cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
+  api_key: process.env.CLOUDINARY_API_KEY,
+  api_secret: process.env.CLOUDINARY_API_SECRET
+});
 
 // RUTA PARA VER EL PERFIL -----------------------------------------------------------------------------------
 router.get('/profile', isAuthenticated, async (req, res) => {
@@ -24,25 +34,22 @@ router.get('/profile', isAuthenticated, async (req, res) => {
 
 
 // DIRECCION DE ALMACENAMIENTO DE LA FOTO DE PERFIL ------------------------------------------------------------
-const storage = multer.diskStorage({
-  destination: (req, file, cb) => {
-    cb(null, path.join(__dirname, '../assets/uploadProfilePics')); //direccion de carpeta del proyecto
-  },
-  filename: async (req, file, cb) => {
-    try {
-      const userId = req.session.userId;
-      const user = await User.findById(userId); // Usa await aquí
+const cloudinaryStorage = require('multer-storage-cloudinary').CloudinaryStorage;
 
-      if (!user) {
-        return cb(new Error('Usuario no encontrado'));
+const storage = new cloudinaryStorage({
+  cloudinary: cloudinary,
+  params: {
+    folder: 'profile_pics', // Carpeta en Cloudinary donde almacenarás las imágenes
+    format: async (req, file) => {
+      // Verificamos la extensión original del archivo para decidir el formato
+      const ext = file.mimetype.split('/')[1]; // Obtiene la extensión del archivo desde el MIME type
+      if (ext === 'png' || ext === 'jpg' || ext === 'jpeg') {
+        return ext; // Retorna la extensión si es válida (png, jpg o jpeg)
       }
-
-      // Usa el username del usuario para renombrar la imagen
-      cb(null, `${user.username}-${Date.now()}${path.extname(file.originalname)}`);
-    } catch (error) {
-      cb(error); // Manejo de errores
-    }
-  }
+      return 'png'; // Valor por defecto
+    },
+    public_id: (req, file) => `${req.session.userId}-${Date.now()}`, // Nombre único para la imagen
+  },
 });
 
 const upload = multer({ storage });
@@ -68,14 +75,17 @@ router.post('/profile/edit', upload.single('profilePicture'), async (req, res) =
 
     // Verifica si se subió una nueva imagen
     if (req.file) {
-      // Si el usuario ya tiene una imagen de perfil, elimínala
-      if (user.profilePicture && fs.existsSync(path.join(__dirname, `../${user.profilePicture}`))) {
-        fs.unlinkSync(path.join(__dirname, `../${user.profilePicture}`));
+      // Si el usuario ya tiene una imagen de perfil, elimina la imagen anterior de Cloudinary
+      if (user.profilePicture) {
+        // Extraer el public_id de Cloudinary desde la URL de la imagen anterior
+        const public_id = user.profilePicture.split('/').slice(-2).join('/').split('.')[0]; 
+        // Esto extrae: profile_pics/66b8d4d09e950a169c479d22-1728394721818
+
+        await cloudinary.uploader.destroy(public_id); // Elimina la imagen anterior de Cloudinary
       }
 
-      // Guarda la nueva imagen
-      user.profilePicture = `/assets/uploadProfilePics/${req.file.filename}`;
-      console.log('Imagen guardada en:', user.profilePicture); // Verifica la ruta guardada
+      // Guarda la nueva imagen desde Cloudinary
+      user.profilePicture = req.file.path; // La URL pública de la imagen subida en Cloudinary
     }
 
     if (user.role === 'student') {
@@ -108,9 +118,12 @@ router.post('/profile/reset-photo', async (req, res) => {
     // Establece la imagen por defecto
     const defaultPhotoPath = '/img/pngwing.png';
 
-    // Si el usuario ya tiene una imagen de perfil personalizada, la eliminamos
-    if (user.profilePicture && user.profilePicture !== defaultPhotoPath && fs.existsSync(path.join(__dirname, `../${user.profilePicture}`))) {
-      fs.unlinkSync(path.join(__dirname, `../${user.profilePicture}`));
+    // Si el usuario ya tiene una imagen de perfil en Cloudinary, eliminarla
+    if (user.profilePicture && user.profilePicture !== defaultPhotoPath) {
+      // Extraer el public_id de la imagen actual de Cloudinary
+      const public_id = user.profilePicture.split('/').slice(-2).join('/').split('.')[0]; 
+      // Elimina la imagen de Cloudinary
+      await cloudinary.uploader.destroy(public_id); 
     }
 
     // Asignar la imagen por defecto al usuario

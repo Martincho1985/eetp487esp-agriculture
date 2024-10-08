@@ -8,5 +8,5 @@ npm install bcryptjs
 npm install multer
 npm install dotenv
 npm install connect-mongo
-
+npm install cloudinary
 
