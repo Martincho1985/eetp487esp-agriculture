@@ -1,4 +1,4 @@
-var timeLeft = 600; // Tiempo límite en segundos (10 minutos)
+var timeLeft = 1200; // Tiempo límite en segundos (20 minutos)
 
 function updateTime() {
   var minutes = Math.floor(timeLeft / 60);

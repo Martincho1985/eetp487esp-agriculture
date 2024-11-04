@@ -139,8 +139,8 @@ router.post('/start-exam', async (req, res) => {
         // Filtrar preguntas por curso y unidad
         let questions = await Question.find({ course: course, unit: unit });
 
-        // Seleccionar 10 preguntas aleatorias
-        questions = questions.sort(() => 0.5 - Math.random()).slice(0, 10);
+        // Seleccionar 20 preguntas aleatorias
+        questions = questions.sort(() => 0.5 - Math.random()).slice(0, 20);
 
         // Alternar las opciones de respuesta
         questions = questions.map(question => {
